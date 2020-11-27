@@ -1,0 +1,24 @@
+<basics wx:if="{{PageCur=='basics'}}"></basics>
+<about wx:if="{{PageCur=='about'}}"></about>
+  <view class="cu-bar tabbar bg-white foot">
+    <view class="action {{PageCur=='basics'?'':'text-gray'}}" data-cur="basics" bindtap="NavChange">
+      <view class="cuIcon-homefill" >
+        <view class="cu-tag badge">5</view>
+      </view> 任务
+    </view>
+    <navigator class="action" hover-class="none" url="/pages/post/post">
+      <view class="action text-gray light add-action" >
+      <button class="cu-btn cuIcon-add bg-grey shadow"></button>
+      发布
+      </view>
+    </navigator>
+    <view class="action {{PageCur=='about'?'':'text-gray'}} " data-cur="about" bindtap="NavChange">
+      <view class="cuIcon-my">
+        <view class="cu-tag badge"></view>
+      </view>
+      我的
+    </view>
+  </view>
+
+
+   

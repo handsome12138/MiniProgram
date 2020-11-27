@@ -1,0 +1,23 @@
+.top{
+  margin-top: 110px;
+
+}
+.left{
+  text-align: left;
+  position: absolute;/*要约束所在位置的子元素的位置要设置成绝对*/
+  left: 0;/* 调节靠左 */
+}
+.cardmargin{
+  margin:10px
+}
+.donetag{
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+.taskcard{
+  height: auto;
+}
+.bottom{
+  margin-bottom:50px;
+}

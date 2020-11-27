@@ -1,0 +1,96 @@
+
+<view class="cu-bar bg-white solid-bottom margin-top top donetag">
+  <view class='action'>
+    <text class='cuIcon-titles text-grey '></text> Undone
+  </view>
+</view>
+
+<view class="cu-card article no-card taskcard">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">完成小程序构件</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content detail">完成小程序的设计原型,完成草图设计和结构功能设计，完成初步的数据库设计</view>
+        <view>
+          <view class="cu-tag bg-gray light sm round">11月30日</view>
+          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-card article no-card taskcard">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">完成后端逻辑</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content detail">实现小程序后端提供的数据库构建。编写代码实现数据访问相关逻辑</view>
+        <view>
+          <view class="cu-tag bg-gray light sm round">11月30日</view>
+          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-card article no-card taskcard">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">完成前端设计</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content detail">完成小程序的前端代码,包括前端逻辑的实现，和页面的相关跳转</view>
+        <view>
+          <view class="cu-tag bg-gray light sm round">12月5日</view>
+          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top donetag">
+  <view class='action'>
+    <text class='cuIcon-titles text-grey '></text> Done
+  </view>
+</view>
+
+<view class="cu-card article no-card taskcard">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">完成小程序构建</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content detail">完成小程序的设计原型,完成草图设计和结构功能设计，完成初步的数据库设计</view>
+        <view>
+          <view class="cu-tag bg-gray light sm round">11月30日</view>
+          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-card article no-card taskcard bottom">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">完成小程序构建</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content detail">完成小程序的设计原型,完成草图设计和结构功能设计，完成初步的数据库设计</view>
+        <view>
+          <view class="cu-tag bg-gray light sm round">11月30日</view>
+          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
