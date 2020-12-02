@@ -10,7 +10,7 @@
       <view class="content">
         <view class="text-grey">系统通知</view>
         <view class="text-gray text-sm">
-          <text class="text-red"></text> 消息未送达 </view>
+          <text class="text-red"></text> 消息未送达</view>
       </view>
       <view class="action">
         <view class="text-grey text-xs">22:20</view>
@@ -18,7 +18,7 @@
       </view>
       <view class="move">
         <view class="bg-grey">置顶</view>
-        <view class="bg-red" id="t1">删除</view>
+        <view class="bg-red">删除</view>
       </view>
     </view>
   </view>

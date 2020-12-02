@@ -1,3 +1,28 @@
+Page({
+  onLoad: function (res) {
+    var that = this 
+    wx.request({
+      url: '47.98.210.49:996', 
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data.data.forecast)
+        that.setData({
+          Industry: res.data.data.forecast
+        })  
+      },
+      fail: function () {
+       console.log("fail")
+      },
+      complete: function () {
+         that.setData({
+           isshow:false
+         })
+      } 
+    })
+  }
+})
 Component({
   options: {
     addGlobalClass: true,

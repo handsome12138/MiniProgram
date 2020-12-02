@@ -88,6 +88,4 @@ Page({
       ListTouchDirection: null
     })
   }
-
-  
 })

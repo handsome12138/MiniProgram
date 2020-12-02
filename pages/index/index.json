@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "basics": "/pages/basics/home/home"
+    "basics": "/pages/basics/home/home",
+    "mypage": "/pages/mypage/mypage"
+
   }
 }

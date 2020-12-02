@@ -25,6 +25,12 @@
       <view class="{{PageCur=='missionslist'?'cuIcon-roundcheckfill':'cuIcon-roundcheck'}}" >
       </view> 任务列表
     </view>
+    <navigator class="action" hover-class="none" url="/pages/post/post">
+      <view class="action text-gray light add-action" >
+      <button class="cu-btn cuIcon-add bg-grey shadow"></button>
+      记录
+      </view>
+    </navigator>
     <view class="action {{PageCur=='record'?'':'text-gray'}} " data-cur="record" bindtap="NavChange">
       <view class="{{PageCur=='record'?'cuIcon-recordfill':'cuIcon-record'}}">
       </view>

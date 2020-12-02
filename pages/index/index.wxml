@@ -1,5 +1,5 @@
 <basics wx:if="{{PageCur=='basics'}}"></basics>
-<about wx:if="{{PageCur=='about'}}"></about>
+<mypage wx:if="{{PageCur=='mypage'}}"></mypage>
   <view class="cu-bar tabbar bg-white foot">
     <view class="action {{PageCur=='basics'?'':'text-gray'}}" data-cur="basics" bindtap="NavChange">
       <view class="cuIcon-homefill" >
@@ -12,7 +12,7 @@
       发布
       </view>
     </navigator>
-    <view class="action {{PageCur=='about'?'':'text-gray'}} " data-cur="about" bindtap="NavChange">
+    <view class="action {{PageCur=='mypage'?'':'text-gray'}} " data-cur="mypage" bindtap="NavChange">
       <view class="cuIcon-my">
         <view class="cu-tag badge"></view>
       </view>
