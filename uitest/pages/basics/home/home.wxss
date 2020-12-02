@@ -1,0 +1,8 @@
+.cu-bar {
+  margin: 30rpx; 
+}
+.margin1{
+  margin-top: 10rpx;
+  margin-left: -20rpx;
+}
+
