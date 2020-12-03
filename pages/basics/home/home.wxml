@@ -18,7 +18,7 @@
       </view>
       <view class="nav-name">{{item.name}}</view>
       <view class="nav-ddl">DDL:{{item.ddl}}</view>
-      <text class='cuIcon-{{item.icon}}'></text>
+      <text class='cuIcon-newsfill'></text>
     </navigator>
   </view>
   <view class='cu-tabbar-height'></view>

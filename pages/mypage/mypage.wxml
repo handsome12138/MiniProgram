@@ -1,6 +1,5 @@
 <scroll-view scroll-y class="scrollPage">
   <view class="UCenter-bg">
-    <image class="userinfo-avatar" src="" mode="cover"></image>
     <view class="text-xl">Team Helper
       <text class="text-df">v1.0</text>
     </view>
