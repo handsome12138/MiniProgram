@@ -1,5 +1,5 @@
 <scroll-view scroll-y class="scrollPage">
-  <navigator open-type="navigate" hover-class='none' url="/pages/basics/message/message">
+  <navigator open-type="navigate" hover-class='none' url="/pages/basics/members/members">
     <view class="cu-bar bg-white round">
     <view class="action sub-title " style="margin-bottom:20rpx">
       <text class="text-xl text-bold" style="margin-top:15rpx">Message</text>

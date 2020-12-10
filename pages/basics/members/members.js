@@ -5,6 +5,15 @@ Page({
     CustomBar: app.globalData.CustomBar,
     hidden: true
   },
+  onShareAppMessage: function () {
+    console.log(app.globalData.userInfo.nickName);
+    var projId=1;
+    return {
+        title: 'TeamHelper',
+        desc: '快来加入我们的项目和大家一起肝DDL吧',
+        path: "/share/share?projId="+projId // 路径，传递参数到指定页面。
+    }
+  },
   onLoad() {
     let list = [];
     for (let i = 0; i < 26; i++) {

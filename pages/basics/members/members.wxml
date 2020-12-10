@@ -1,5 +1,6 @@
 
 <scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" scroll-with-animation="true" enable-back-to-top="true">
+  <button open-type='share' class="sharebtn rounded">邀请同伴加入</button>
   <block wx:for="{{list}}" wx:key>
     <view class="padding indexItem-{{list[index]}}" id="indexes-{{list[index]}}" data-index="{{list[index]}}">{{list[index]}}</view>
     <view class="cu-list menu-avatar no-padding">

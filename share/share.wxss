@@ -1,0 +1,32 @@
+/* share/share.wxss */
+.card{
+  margin: 40px;
+  width: 300px;
+  height:150px;
+  padding:20px;
+}
+.cu-bar {
+  margin: 30rpx; 
+}
+.margin1{
+  margin-top: 10rpx;
+  margin-left: -20rpx;
+}
+.nav-title{
+  font-size: large;
+  font-weight: bold;
+}
+.container{
+  display: flex;
+  display: flex;   
+  align-items: center;   
+  justify-content: center;
+  flex-direction: column;
+}
+.inv{
+  font-size: larger;
+  margin-bottom: 30px;
+}
+.btn{
+  margin-bottom: 20px;
+}

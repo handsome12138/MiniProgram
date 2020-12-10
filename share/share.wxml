@@ -1,0 +1,18 @@
+<!--share/share.wxml-->
+
+<view  open-type="navigate" hover-class='none' class="nav-li bg-white light card" align-center>
+  <view class="nav-title">Project1</view>
+  <view class="cu-avatar-group align-center margin1" >
+        <view class="cu-avatar round sm" wx:for="2" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+  </view>
+  <view class="nav-name">微信小程序制作</view>
+  <view class="nav-ddl">DDL:12月21日</view>
+  <text class='cuIcon-newsfill'></text>
+</view>
+
+<view class="container">
+  <text class="inv text-lg text-bold">XXX邀请您加入</text>
+  <button class="btn text-gray">加入</button>
+  <button class="btn bg-grey light">拒绝</button>
+</view>
+

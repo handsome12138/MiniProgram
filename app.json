@@ -6,7 +6,8 @@
     "pages/basics/Project1/Project1",
     "pages/post/post",
     "pages/basics/members/members",
-    "pages/basics/message/messages"
+    "pages/basics/message/messages",
+    "share/share"
   ],
   "window": {
     "backgroundTextStyle": "light",
