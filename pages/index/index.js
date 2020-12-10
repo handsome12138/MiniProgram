@@ -1,6 +1,48 @@
+const app = getApp();
 Page({
   data: {
-    PageCur: 'basics'
+    PageCur: 'basics',
+    userInfo:[],
+    hasUserInfo:false,
+  },
+  onLoad: function () {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+      
+    } else if (this.data.canIUse){
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      console.log(0)
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+        console.log(res.userInfo)
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
+  },
+  getUserInfo: function(e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
   },
   NavChange(e) {
     this.setData({
@@ -9,36 +51,9 @@ Page({
   },
   onShareAppMessage() {
     return {
-      title: 'ColorUI-高颜值的小程序UI组件库',
+      title: 'TeamHelprt',
       imageUrl: '/images/share.jpg',
       path: '/pages/index/index'
     }
-  }
-})
-var _this = this;
-wx.request({
-  url: "https://api.imjad.cn/cloudmusic/", //上线的话必须是https，没有appId的本地请求貌似不受影响 
-  method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT 
-  header: {
-    'content-type': 'json',
-  }, // 设置请求的 header
-  data: {
-    'id':28012031
-  },
-  success: function(res) {
-    console.log(1)
-    console.log(res)
-    if (res.data.code == 1) {
-      _this.setData({
-        phone: res.data.user.phone,
-      })
-    }
-  },
-  fail: function(res) {
-    console.log("请求数据失败");
-    console.log(res)
-  },
-  complete: function() {
-    // complete 
-  }
+  }  
 })
