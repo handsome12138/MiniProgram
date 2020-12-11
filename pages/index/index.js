@@ -4,8 +4,59 @@ Page({
     PageCur: 'basics',
     userInfo:[],
     hasUserInfo:false,
+    usrid: "test_usrid",
+    elements: []
+    // usrid 应该通过接口获取后setdata
   },
   onLoad: function () {
+    var response, pid_list=[], i,j, back = [], temp, _this=this;
+    wx.request({
+      url: "http://wychandsome12138.xyz:996/api/get/get_proj_list_by_usrid", 
+      method: "POST", // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT 
+      data: {
+        "usrid":"test_usrid"
+      },
+      success: function(res) {
+        console.log("success request");
+        for(i in res.data){//i 为下标
+          pid_list.push(res.data[i].pid)
+        };
+        wx.request({
+          url: 'http://wychandsome12138.xyz:996/api/get/get_proj_content',
+          method: "POST",
+          data:{
+            "projid": pid_list
+          },
+          success: function(res){
+            console.log(res)
+            for(i in res.data){
+              temp = res.data[i];
+              back.push({
+                title: temp.pname,
+                name: temp.content,
+                ddl: temp.ddl
+              })
+            }
+            _this.setData({
+              elements: back
+            })
+          },
+          fail: function(res){
+            console.log("请求proj content的 list的request 失败！")
+          }
+        })
+      },
+      fail: function(res) {
+        console.log("请求数据失败!!");
+      },
+      complete: function(res) {
+      }
+    })
+    // wx.request 范例
+    // var pidlist = [item.pid for (item of projlist)]
+    
+
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
