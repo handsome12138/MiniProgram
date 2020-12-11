@@ -12,25 +12,17 @@ App({
     wx.setStorageSync('logs', logs)
 
     // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        var code = res.code; //返回code
-        console.log(code);
-        var appId = this.appId;
-        var secret =this.secret;
-        wx.request({
-          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appId + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
-          data: {},
-          header: {
-            'content-type': 'json'
-          },
-          success: function (res) {
-            var openid = res.data.openid //返回openid
-            console.log(res);
-          }
-      })
-    }
+    wx.cloud.init()
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'getProj',
+      // 传给云函数的参数
+      data: {
+      },
+      success: function(res) {
+        console.log(res.result) // 3
+      },
+      fail: console.error
     })
     // 获取用户信息
     wx.getSetting({
