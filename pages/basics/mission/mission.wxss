@@ -2,6 +2,9 @@
   margin-top: 110px;
 
 }
+.cu-tag{
+  margin:10px
+}
 .left{
   text-align: left;
   position: absolute;/*要约束所在位置的子元素的位置要设置成绝对*/
@@ -15,9 +18,6 @@
   align-items: left;
   justify-content: left;
 }
-.taskcard{
-  height: auto;
-}
 .bottom{
   margin-bottom:50px;
 }
@@ -27,7 +27,18 @@
 }
 .move{
   flex-direction: row;
+  height: auto;
 }
-.culist{
-  width:100%;
+.cu-card{
+  display: flex;
+  flex-direction: row;
+}
+.title{
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+   word-break:break-all;
+}
+.content{
+  word-break:break-all;
 }

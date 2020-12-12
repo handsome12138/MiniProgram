@@ -2,36 +2,48 @@ Component({
   options: {
     addGlobalClass: true,
   },
+  data: {
+    undone: [{
+      title: '完成小程序构建',
+      content: '完成小程序注册哈哈哈哈哈哈哈哈',
+      ddl: '12月1日',
+      tag: '微信小程序实践',
+    },
+    {
+      title: '进一步完成小程序构建',
+      content: '哈哈哈哈哈哈哈1111111111111222222',
+      ddl: '12月5日',
+      tag: '微信小程序实践',
+    },
+    {
+      title: '完成后端逻辑整理',
+      content: '创建数据库给出api，让前端可以调用',
+      ddl: '12月22日',
+      tag: '大作业',
+    },
+    {
+      title: '做视频',
+      content: '将大作业做成视频aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      ddl: '12月30日',
+      tag: '大作业展示',
+    }],
+    done: [{
+      title: '组队',
+      content: '完成组队啊啊啊',
+      ddl: '11月11日',
+      tag: '抱大腿',
+    },
+    {
+      title: '第一次小会',
+      content: '讨论内容啊啊啊啊啊啊',
+      ddl: '11月22日',
+      tag: '组队',
+    }]
+
+  },
    methods:{
-      // ListTouch触摸开始
-    ListTouchStart(e) {
-      this.setData({
-        ListTouchStart: e.touches[0].pageX
-      })
-    },
-
-    // ListTouch计算方向
-    ListTouchMove(e) {
-      this.setData({
-        ListTouchDirection: e.touches[0].pageX - this.data.ListTouchStart > 0 ? 'right' : 'left'
-      })
-    },
-
-    // ListTouch计算滚动
-    ListTouchEnd(e) {
-      if (this.data.ListTouchDirection =='left'){
-        this.setData({
-          modalName: e.currentTarget.dataset.target
-        })
-        console.log(e.currentTarget.dataset.target)
-      } else {
-        this.setData({
-          modalName: null
-        })
-      }
-      this.setData({
-        ListTouchDirection: null
-      })
-    },
+     tap(){
+       console.log(1);
+     }
    }
 })

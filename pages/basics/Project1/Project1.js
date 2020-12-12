@@ -6,7 +6,7 @@ Page({
     PageCur: 'missionslist',
     projId: null,
     date: '2020-11-27',
-  },
+  }, 
   NavChange(e) {
     this.setData({
       PageCur: e.currentTarget.dataset.cur

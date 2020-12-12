@@ -1,7 +1,5 @@
 .cu-bar {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+  
 }
 .avatar{
   width: 10%;
@@ -10,7 +8,6 @@
 }
 .fix{
   flex-direction: column;
-  justify-content: center;
 }
 .bar{
   margin: 10px;
@@ -26,4 +23,15 @@
   width: 30px;
   margin-left:30px;
   
+}
+.container{
+  align-items: center;
+  text-align: left;
+}
+.title{
+  font-size: 18px;
+  margin-right: 10px;
+}
+.input{
+  font-size: 16px;
 }

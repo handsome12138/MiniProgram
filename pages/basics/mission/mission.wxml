@@ -5,50 +5,20 @@
   </view>
 </view>
 
-<view class="cu-card article no-card taskcard" >
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">完成小程序构件</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content detail">完成小程序的设计原型,完成草图设计和结构功能设计，完成初步的数据库设计</view>
-        <view>
-          <view class="cu-tag bg-gray light sm round">11月30日</view>
-          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
-        </view>
+<view class="cu-list">
+  <view class="cu-card article no-card cu-item" wx:for="{{undone}}" wx:key >
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">{{item.title}}</view>
+        <text bindtap="tap" style="font-size:20px"class="cuIcon-round"></text>
       </view>
-    </view>
-  </view>
-</view>
-
-<view class="cu-card article no-card taskcard">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">完成后端逻辑</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content detail">实现小程序后端提供的数据库构建。编写代码实现数据访问相关逻辑</view>
-        <view>
-          <view class="cu-tag bg-gray light sm round">11月30日</view>
-          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
-        </view>
-      </view>
-    </view>
-  </view>
-</view>
-<view class="cu-card article no-card taskcard">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">完成前端设计</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content detail">完成小程序的前端代码,包括前端逻辑的实现，和页面的相关跳转</view>
-        <view>
-          <view class="cu-tag bg-gray light sm round">12月5日</view>
-          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content detail">{{item.content}}</view>
+          <view>
+            <view class="cu-tag bg-gray light sm round">{{item.ddl}}</view>
+            <view class="cu-tag bg-gray light sm round">{{item.tag}}</view>
+          </view>
         </view>
       </view>
     </view>
@@ -61,62 +31,24 @@
   </view>
 </view>
 
-<view class="cu-card article no-card taskcard">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">完成小程序构建</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content detail">完成小程序的设计原型,完成草图设计和结构功能设计，完成初步的数据库设计</view>
-        <view>
-          <view class="cu-tag bg-gray light sm round">11月30日</view>
-          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
-        </view>
-      </view>
-    </view>
-  </view>
-</view>
-
-<view class="cont">
-  <view class=" cu-list cu-card article no-card taskcard cu-item bottom {{modalName=='move-box'?'move-cur':''}}"  bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box">
+<view class="cu-list">
+  <view class="cu-card article no-card cu-item" wx:for="{{done}}" wx:key >
     <view class="cu-item shadow">
       <view class="title">
-        <view class="text-cut">完成小程序构建</view>
+        <view class="text-cut">{{item.title}}</view>
+        <text style="font-size:20px" class="cuIcon-roundcheck"></text>
       </view>
       <view class="content">
         <view class="desc">
-          <view class="text-content detail">完成小程序的设计原型,完成草图设计和结构功能设计，完成初步的数据库设计</view>
+          <view class="text-content detail">{{item.content}}</view>
           <view>
-            <view class="cu-tag bg-gray light sm round">11月30日</view>
-            <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
+            <view class="cu-tag bg-gray light sm round">{{item.ddl}}</view>
+            <view class="cu-tag bg-gray light sm round">{{item.tag}}</view>
           </view>
         </view>
       </view>
     </view>
   </view>
-  <view class="move">
-          <view class="bg-grey">置顶</view>
-          <view class="bg-red">删除</view>
-  </view>
 </view>
+<!--这里的逻辑可以后端写两个函数，一个返回所有done，一个返回所有undone。如果用户点了那个小圈圈，就更改数据库的status，整个页面重新加载一遍-->
 
-
-<view class="cu-list menu-avatar">
-    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{4}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
-      <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100{{index+1}}.jpg);"></view>
-      <view class="content">
-        <view class="text-grey">文晓港</view>
-        <view class="text-gray text-sm">
-          <text class="cuIcon-infofill text-red"></text> 消息未送达</view>
-      </view>
-      <view class="action">
-        <view class="text-grey text-xs">22:20</view>
-        <view class="cu-tag round bg-grey sm">5</view>
-      </view>
-      <view class="move">
-        <view class="bg-grey">置顶</view>
-        <view class="bg-red">删除</view>
-      </view>
-    </view>
-  </view>

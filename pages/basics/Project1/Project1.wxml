@@ -17,6 +17,8 @@
       </view>
     </navigator>
 </view>
+
+
 <view class="cu-bar" wx:if="{{isFixedTop}}"></view>
 <mission wx:if="{{PageCur=='missionslist'}}"></mission>
 <record wx:if="{{PageCur=='record'}}"></record>
@@ -27,7 +29,7 @@
     </view>
     <!-- <navigator class="action" hover-class="none" url="/pages/post/post">-->
 
-    <navigator class="action" hover-class="none" bindtap="showModal" data-target="DialogModal1">
+    <navigator class="action" hover-class="none" bindtap="showModal" data-target="{{PageCur=='missionslist'?'DialogModal1':'DialogModal2'}}">
       <view class="action text-gray light add-action" >
       <button class="cu-btn cuIcon-add bg-grey shadow"></button>
       {{PageCur=='missionslist'?'添加子任务':'添加记录'}} 
@@ -40,33 +42,65 @@
     </view>
   </view>
 
-<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+<view class=" cu-modal {{modalName=='DialogModal1'?'show':''}}">
   <view class="cu-dialog">
     <view class="cu-bar bg-white justify-end">
       <view class="content">添加子任务</view>
     </view>
-    <view class="padding-xs">
+    <view class="padding-xs container">
       <form>
         <view class="cu-form-group">
           <view class="title">任务名</view>
-          <input></input>
+          <input ></input>
         </view>
         <view class="cu-form-group">
           <view class="title">标签</view>
-          <input ></input>
+          <input style='font-size:16px'></input>
         </view>
         <view class="cu-form-group align-start">
           <view class="title">详情</view>
-          <textarea maxlength="-1" bindinput="textareaBInput" ></textarea>
+          <textarea style='font-size:16px' maxlength="-1" bindinput="textareaBInput" ></textarea>
         </view>
         <view class="cu-form-group">
           <view class="title">DDL</view>
-          <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+          <picker mode="date" value="{{date}}" start="2020-09-01" end="2025-09-01" bindchange="DateChange">
             <view class="picker">
               {{date}}
             </view>
           </picker>
         </view>
+      </form>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action" style="margin-bottom:20px;margin-top:20px;">
+        <button class="cu-btn line-green text-green" style="width:150px;margin-left:50px;margin-right:20px" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" style="width:150px;margin-right:50px;margin-left:20px"bindtap="hideModal">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="cu-modal {{modalName=='DialogModal2'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">添加记录</view>
+    </view>
+    <view class="padding-xs container">
+      <form >
+        <view class="cu-form-group">
+          <view class="title">时间</view>
+          <picker mode="date" value="{{date}}" start="2020-09-01" end="2025-09-01" bindchange="DateChange">
+            <view class="picker">
+              {{date}}
+            </view>
+          </picker>
+        </view>
+        <view class="cu-form-group align-start">
+          <view class="title">内容</view>
+          <textarea maxlength="-1" bindinput="textareaBInput" ></textarea>
+        </view>
+        
       </form>
     </view>
     <view class="cu-bar bg-white justify-end">
