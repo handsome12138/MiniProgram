@@ -63,7 +63,7 @@
  		</view>
 	</form>
 
-	<button bindtap='additem' style="margin-top:15px;"> 添加子任务</button>  
+	<button class="text-grey" bindtap='additem' style="margin-top:15px;"> 添加子任务</button>  
 	<view >
   	<button type="primary" style="margin-bottom:15px;margin-top:15px">提交</button>
 	</view>

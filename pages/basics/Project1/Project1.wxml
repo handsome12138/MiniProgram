@@ -25,10 +25,12 @@
       <view class="{{PageCur=='missionslist'?'cuIcon-roundcheckfill':'cuIcon-roundcheck'}}" >
       </view> 任务列表
     </view>
-    <navigator class="action" hover-class="none" url="/pages/post/post">
+    <!-- <navigator class="action" hover-class="none" url="/pages/post/post">-->
+
+    <navigator class="action" hover-class="none" bindtap="showModal" data-target="DialogModal1">
       <view class="action text-gray light add-action" >
       <button class="cu-btn cuIcon-add bg-grey shadow"></button>
-      记录
+      {{PageCur=='missionslist'?'添加子任务':'添加记录'}} 
       </view>
     </navigator>
     <view class="action {{PageCur=='record'?'':'text-gray'}} " data-cur="record" bindtap="NavChange">
@@ -37,3 +39,41 @@
       记录列表
     </view>
   </view>
+
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">添加子任务</view>
+    </view>
+    <view class="padding-xs">
+      <form>
+        <view class="cu-form-group">
+          <view class="title">任务名</view>
+          <input></input>
+        </view>
+        <view class="cu-form-group">
+          <view class="title">标签</view>
+          <input ></input>
+        </view>
+        <view class="cu-form-group align-start">
+          <view class="title">详情</view>
+          <textarea maxlength="-1" bindinput="textareaBInput" ></textarea>
+        </view>
+        <view class="cu-form-group">
+          <view class="title">DDL</view>
+          <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+            <view class="picker">
+              {{date}}
+            </view>
+          </picker>
+        </view>
+      </form>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action" style="margin-bottom:20px;margin-top:20px;">
+        <button class="cu-btn line-green text-green" style="width:150px;margin-left:50px;margin-right:20px" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" style="width:150px;margin-right:50px;margin-left:20px"bindtap="hideModal">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

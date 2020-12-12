@@ -5,4 +5,17 @@
   margin-top: 10rpx;
   margin-left: -20rpx;
 }
+.nav-title{
+  font-weight: bold;
+  font-size: larger;
+  word-break:break-all; 
+}
+.nav-name{
+  word-break:break-all; 
+  font-size: medium;
+}
+.nav-ddl{
+  word-break:break-all; 
+}
+
 

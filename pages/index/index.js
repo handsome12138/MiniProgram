@@ -34,7 +34,8 @@ Page({
               back.push({
                 title: temp.pname,
                 name: temp.content,
-                ddl: temp.ddl
+                ddl: temp.ddl,
+                id:temp.id
               })
             }
             _this.setData({

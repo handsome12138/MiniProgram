@@ -78,26 +78,29 @@
   </view>
 </view>
 
-<view class=" cu-list cu-card article no-card taskcard cu-item bottom {{modalName=='move-box'?'move-cur':''}}"  bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">完成小程序构建</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content detail">完成小程序的设计原型,完成草图设计和结构功能设计，完成初步的数据库设计</view>
-        <view>
-          <view class="cu-tag bg-gray light sm round">11月30日</view>
-          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
+<view class="cont">
+  <view class=" cu-list cu-card article no-card taskcard cu-item bottom {{modalName=='move-box'?'move-cur':''}}"  bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box">
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">完成小程序构建</view>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content detail">完成小程序的设计原型,完成草图设计和结构功能设计，完成初步的数据库设计</view>
+          <view>
+            <view class="cu-tag bg-gray light sm round">11月30日</view>
+            <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
+          </view>
         </view>
       </view>
     </view>
   </view>
   <view class="move">
-        <view class="bg-grey">置顶</view>
-        <view class="bg-red">删除</view>
+          <view class="bg-grey">置顶</view>
+          <view class="bg-red">删除</view>
   </view>
 </view>
+
 
 <view class="cu-list menu-avatar">
     <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{4}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">

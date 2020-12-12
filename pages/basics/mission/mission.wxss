@@ -21,3 +21,13 @@
 .bottom{
   margin-bottom:50px;
 }
+.cont{
+  display: flex;
+  flex-direction: row;
+}
+.move{
+  flex-direction: row;
+}
+.culist{
+  width:100%;
+}
