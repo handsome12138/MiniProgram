@@ -8,7 +8,8 @@
     "pages/post/post",
     "pages/basics/members/members",
     "pages/basics/message/message",
-    "share/share"
+    "share/share",
+    "pages/basics/mission/mission"
   ],
   "window": {
     "backgroundTextStyle": "light",

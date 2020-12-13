@@ -28,6 +28,7 @@ Component({
     addGlobalClass: true,
   },
   data: {
+    skeletonShow:true,
     elements: [{
         title: 'Project1',
         name: '完成小程序注册哈哈哈哈哈哈哈哈',
@@ -80,4 +81,8 @@ Component({
       value:{}
     }
   },
+  lifetimes:{
+    onLoad: function (options) {
+    }
+  }
 })

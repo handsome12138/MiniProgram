@@ -43,7 +43,7 @@ Component({
   },
    methods:{
      tap(){
-       console.log(1);
+       //这里wx.request重新请求done和undone的数据，setdata后重新渲染页面
      }
    }
 })
