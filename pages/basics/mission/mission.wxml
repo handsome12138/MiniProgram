@@ -6,7 +6,7 @@
 </view>
 
 <view class="cu-list">
-  <view class="article no-card cu-item cu-card" wx:for="{{undone}}" wx:key >
+  <view class="article no-card cu-card" wx:for="{{undone}}" wx:key >
     <view class="shadow cu-item">
       <view class="title">
         <view class="text-cut">{{item.title}}</view>

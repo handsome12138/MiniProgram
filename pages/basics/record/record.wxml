@@ -3,21 +3,13 @@
     <text class='cuIcon-titles text-grey '></text> TimeLine
   </view>
 </view>
-
-<view class="cu-timeline">
-  <view class="cu-time">10-30</view>
+<view class="bottom">
+<view class="cu-timeline" wx:for="{{record}}" wx:key>
+  <view class="cu-time">{{item.time}}</view>
   <view class="cu-item">
     <view class="content">
-      <text></text>完成第一次会议，确定小程序主题 
+      <text></text>{{item.task}} 
     </view>
   </view>
 </view>
-
-<view class="cu-timeline">
-  <view class="cu-time">11-5</view>
-  <view class="cu-item">
-    <view class="content">
-      <text></text> 完成第二次会议，更改小程序主题并分配任务
-    </view>
-  </view>
 </view>
