@@ -1,5 +1,5 @@
 .top{
-  margin-top: 110px;
+  margin-top: 115px;
 
 }
 .cu-tag{
@@ -40,5 +40,13 @@
    word-break:break-all;
 }
 .content{
+ 
+  width:100vw;
   word-break:break-all;
+  position: relative;
+  overflow-wrap: break-word;
+  flex-grow: 1;
+}
+.cu-list{
+  display:block;
 }

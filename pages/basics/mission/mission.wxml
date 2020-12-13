@@ -6,8 +6,8 @@
 </view>
 
 <view class="cu-list">
-  <view class="cu-card article no-card cu-item" wx:for="{{undone}}" wx:key >
-    <view class="cu-item shadow">
+  <view class="article no-card cu-item cu-card" wx:for="{{undone}}" wx:key >
+    <view class="shadow cu-item">
       <view class="title">
         <view class="text-cut">{{item.title}}</view>
         <text bindtap="tap" style="font-size:20px"class="cuIcon-round"></text>
@@ -31,7 +31,7 @@
   </view>
 </view>
 
-<view class="cu-list">
+<view class="cu-list bottom">
   <view class="cu-card article no-card cu-item" wx:for="{{done}}" wx:key >
     <view class="cu-item shadow">
       <view class="title">
