@@ -4,8 +4,9 @@ App({
     userInfo: null,
     appId:"wx8d5a947dca8f7394",
     secret:"bcd0ad6883cd9440b12605608cccb787",
-    openid:null,
-    getUserInfoReady:false
+    openId:null,
+    getUserInfoReady:false,
+    access_token:null
   },
   onLaunch: function () {
     // 展示本地存储能力
@@ -26,14 +27,34 @@ App({
               //console.log(userBasicInfo)
               this.globalData.userInfo = res.userInfo
               wx.cloud.init()
+               //获取access_token  (openid已经事先获取到了，很简单，官方文档介绍的很清楚了)
+                var appid ='wx8d5a947dca8f7394';//微信公众号开发者id
+                var secret ='6feadcff71f7e71b065d525345c960af';//微信公众号开发者secret_key
+                var that = this
+                wx.request({
+                  url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential' + '&appid=' + appid + '&secret=' + secret,
+                  header: {
+                    'content-type': 'application/json' // 默认值
+                  },
+                  success(res) {
+                    console.log(res.data)
+                    that.globalData.access_token=res.data.access_token;
+                    console.log(that.globalData.access_token)
+                  }
+                })
+                
               wx.cloud.callFunction({
                 // 云函数名称
                 name: 'getProj',
                 // 传给云函数的参数
                 data: {},
                 success: function(res) {
+                  var that=this;
                   userOpenId=res.result.userInfo.openId;
-                  //console.log(userOpenId);
+                  console.log(userOpenId);
+                  var app = getApp();
+                  
+                  app.globalData.openId=userOpenId;
                   wx.request({
                     url: 'http://wychandsome12138.xyz:996/api/post/user_sign',
                     method: "POST",
@@ -47,6 +68,7 @@ App({
                     },
                     success: function(res){
                       console.log(res)
+                    
                       },
                       fail: function(res){
                         console.log("请求User login的request 失败！")
@@ -55,8 +77,10 @@ App({
                   },
                   fail: console.error
                 })
+                
                   }
                 })
+                
         }
       }
     })
