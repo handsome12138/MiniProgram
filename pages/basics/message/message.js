@@ -3,7 +3,34 @@ Page({
   data: {
     navbarInitTop: 0, //导航栏初始化距顶部的距离
     isFixedTop: true, //是否固定顶部
-    PageCur: 'missionslist'
+    PageCur: 'missionslist',
+    msgList:[
+      {
+        projName:"习概大作业",
+        taskName:"完成课堂讨论记录",
+        time:"2020-12-14 23:10",
+        leftTime:"24h",
+      },
+      {
+        projName:"微信小程序",
+        taskName:"完成前端页面构建",
+        time:"2020-12-14 13:10",
+        leftTime:"48h",
+      },
+      {
+        projName:"马原论文",
+        taskName:"完成引言部分撰写",
+        time:"2020-12-11 11:11",
+        leftTime:"1h",
+      },
+      {
+        projName:"系统消息",
+        taskName:"学习使用TeamHelper",
+        time:"2020-12-11 11:11",
+        leftTime:"12h",
+      }
+
+    ]
   },
   NavChange(e) {
     this.setData({
@@ -41,6 +68,18 @@ Page({
   menuBorder: function (e) {
     this.setData({
       menuBorder: e.detail.value
+    });
+  },
+  delItem: function (e) {
+    //获取列表中要删除项的下标
+    var index = e.currentTarget.dataset.index;
+    console.log(index)
+    var msgList = this.data.msgList;
+    //移除列表中下标为index的项
+    msgList.splice(index, 1);
+    //更新列表的状态
+    this.setData({
+        msgList: msgList
     });
   },
   menuArrow: function (e) {

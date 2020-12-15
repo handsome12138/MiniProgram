@@ -5,21 +5,23 @@
     </view>
   </view>
   <view class="cu-list menu-avatar">
-    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{4}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
-      <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100{{index+1}}.jpg);"></view>
-      <view class="content">
-        <view class="text-grey">系统通知</view>
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{msgList}}" wx:key bindtouchstart="ListTouchStart" id="{{index}}" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+      <view class="content" style="margin-left:-100rpx;width:700rpx">
+        <view class="text-grey">{{item.projName}}</view>
         <view class="text-gray text-sm">
-          <text class="text-red"></text> 消息未送达</view>
+          <text class="text-red"></text>您的任务"{{item.taskName}}"还有{{item.leftTime}}就要截止,请尽快完成！</view>
       </view>
       <view class="action">
-        <view class="text-grey text-xs">22:20</view>
-        <view class="cu-tag round bg-grey sm">5</view>
+        <view class="text-grey text-xs"style="margin-left:-70rpx;margin-top:-35rpx">{{item.time}}</view>
+        <!--<view class="cu-tag round bg-grey sm">5</view>-->
       </view>
       <view class="move">
-        <view class="bg-grey">置顶</view>
-        <view class="bg-red">删除</view>
+        <view class="bg-grey">取消</view>
+        <view data-index="{{index}}"class="bg-red" bindtap="delItem">删除</view>
       </view>
     </view>
+  </view>
+  <view wx-if="{{msgList==null}}">
+  暂时没有消息哦~
   </view>
 </scroll-view>
