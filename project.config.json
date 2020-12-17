@@ -28,7 +28,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false,
 		"useMultiFrameRuntime": false,
 		"useApiHook": true,
@@ -36,7 +36,7 @@
 		"packNpmRelationList": []
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.14.0",
+	"libVersion": "2.10.4",
 	"appid": "wx8d5a947dca8f7394",
 	"projectname": "uitest",
 	"debugOptions": {

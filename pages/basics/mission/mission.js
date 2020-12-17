@@ -1,8 +1,17 @@
+var animation = wx.createAnimation({});
+var i = 1;
 Component({
   options: {
     addGlobalClass: true,
   },
   data: {
+    donghua: true,
+    left1: Math.floor(Math.random() * 400 + 1),
+    left2: Math.floor(Math.random() * 300 + 1),
+    left3: Math.floor(Math.random() * 200 + 1),
+    left4: Math.floor(Math.random() * 400 + 1),
+    left5: Math.floor(Math.random() * 300 + 1),
+    left6: Math.floor(Math.random() * 650 + 1),
     undone: [{
       title: '完成小程序构建',
       content: '完成小程序注册哈哈哈哈哈哈哈哈',
@@ -42,8 +51,31 @@ Component({
 
   },
    methods:{
-     tap(){
+     tap:function(){
+        this.donghua();
        //这里wx.request重新请求done和undone的数据，setdata后重新渲染页面
-     }
+     },
+     donghua: function () {
+      setTimeout(function () {
+        animation.translateY(2000).step({ duration: 6000 })
+        this.setData({
+          ["animationData" + i]: animation.export()
+        })
+        i++;
+      }.bind(this), 600)
+      if (i < 7) {
+        setTimeout(function () {
+          this.donghua()
+        }.bind(this), 1000)
+      } else {
+        //console.log(22)
+        setTimeout(function () {
+          this.setData({
+            donghua: false
+          })
+        }.bind(this), 4500)
+        i=1;
+      }
+    }
    }
 })

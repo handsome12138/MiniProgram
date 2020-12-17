@@ -1,4 +1,15 @@
 
+<block wx:if="{{donghua}}">
+  <view class='donghua'>
+    <image bindtap='hua' style='left:{{left1}}px' animation="{{animationData1}}" class='love' src='/static/star.png'></image>
+    <image bindtap='hua' style='left:{{left2}}px' animation="{{animationData2}}" class='love' src='/static/star.png'></image>
+    <image bindtap='hua' style='left:{{left3}}px' animation="{{animationData3}}" class='love' src='/static/star.png'></image>
+    <image bindtap='hua' style='left:{{left4}}px' animation="{{animationData4}}" class='love' src='/static/star.png'></image>
+    <image bindtap='hua' style='left:{{left5}}px' animation="{{animationData5}}" class='love' src='/static/star.png'></image>
+    <image bindtap='hua' style='left:{{left6}}px' animation="{{animationData6}}" class='love' src='/static/star.png'></image>
+    </view>
+</block>
+
 <view class="cu-bar bg-white solid-bottom margin-top top donetag">
   <view class='action'>
     <text class='cuIcon-titles text-grey '></text> Undone

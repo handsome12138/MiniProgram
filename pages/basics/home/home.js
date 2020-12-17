@@ -84,5 +84,18 @@ Component({
   lifetimes:{
     onLoad: function (options) {
     }
+  },
+  methods:{
+    containerTap:function(res){
+      console.log(res.touches[0]);
+      var x=res.touches[0].pageX-5;
+      var y=res.touches[0].pageY+85;
+      this.setData({
+        rippleStyle:''
+      });
+      this.setData({
+        rippleStyle:'top:'+y+'px;left:'+x+'px;-webkit-animation: ripple 0.4s linear;animation:ripple 0.4s linear;'
+      });
+    }
   }
 })

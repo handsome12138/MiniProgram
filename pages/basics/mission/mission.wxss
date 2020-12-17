@@ -48,3 +48,10 @@
 .cu-list{
   display:block;
 }
+image{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: -800rpx;
+  z-index: 200;
+}

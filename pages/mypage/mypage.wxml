@@ -27,12 +27,12 @@
     
   </view>
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-    <view class="cu-item arrow">
-      <view class="content" url="/pages/basics/message/message">
+    <navigator class="cu-item arrow" url="/pages/basics/message/message">
+      <view class="content" >
         <text class="cuIcon-notification text-grey"></text>
         <text class="text-grey">消息中心</text>
       </view>
-    </view>
+    </navigator>
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/log/log" hover-class="none">
         <text class="cuIcon-formfill text-grey"></text>
