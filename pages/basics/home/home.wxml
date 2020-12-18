@@ -12,7 +12,7 @@
 	</navigator>
 	<!-- 以上是Message界面 -->
 
-	<view class='nav-list'>
+	<view class='nav-list'  wx:if="{{elements.length>0}}">
 		<!-- <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.title}}/{{item.title}}" class="nav-li bg-white light" wx:for="{{elements}}" wx:key="item"> -->
 		<navigator open-type="navigate" url="/pages/basics/Project1/Project1?projId={{item.id}}" hover-class='none' class="nav-li bg-white light" wx:for="{{elements}}" wx:key="item">
 			<view class="nav-title">{{item.title}}</view>
@@ -25,5 +25,9 @@
 			<!-- 右上角icon -->
 		</navigator>
 	</view>
+	<view wx:else class="backg">
+    <image src="/static/loading4.gif" mode="aspectFit" class="gif-black response" style="width:380px;height:80px;"></image>
+  </view>
 	<view class='cu-tabbar-height'></view>
+	
 </scroll-view>
