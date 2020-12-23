@@ -47,12 +47,12 @@ Page({
     var userinfo=this.data.userinfo
     var projId=23
       wx.request({
-        url: 'http://wychandsome12138.xyz/api/post/join_proj',
+        url: 'https://wychandsome12138.xyz/api/post/join_proj',
         method: "POST",
         data:{
-          "id":app.globalData.openid,
+          "id":app.globalData.openId,
           "url": userinfo.avatarUrl,
-          "name":userinfo.nickname,
+          "name":userinfo.nickName,
           "projid": projId,
         },
         success: function(res){
