@@ -3,11 +3,13 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
-    hidden: true
+    hidden: true,
+    userinfo:[],
+    openid:null
   },
   onShareAppMessage: function () {
-    console.log(app.globalData.userInfo.nickName);
-    var projId=1;
+    console.log(userInfo.nickName);
+    var projId=23;
     return {
         title: 'TeamHelper',
         desc: '快来加入我们的项目和大家一起肝DDL吧',
@@ -16,6 +18,7 @@ Page({
     }
   },
   onLoad() {
+    console.log(app.globalData.openId);
     let list = [];
     for (let i = 0; i < 26; i++) {
       list[i] = String.fromCharCode(65 + i)
@@ -24,76 +27,45 @@ Page({
       list: list,
       listCur: list[0]
     })
+    
+      
+    
   },
   onReady() {
-    let that = this;
-    wx.createSelectorQuery().select('.indexBar-box').boundingClientRect(function(res) {
-      that.setData({
-        boxTop: res.top
-      })
-    }).exec();
-    wx.createSelectorQuery().select('.indexes').boundingClientRect(function(res) {
-      that.setData({
-        barTop: res.top
-      })
-    }).exec()
-  },
-  //获取文字信息
-  getCur(e) {
-    this.setData({
-      hidden: false,
-      listCur: this.data.list[e.target.id],
-    })
-  },
-
-  setCur(e) {
-    this.setData({
-      hidden: true,
-      listCur: this.data.listCur
-    })
-  },
-  //滑动选择Item
-  tMove(e) {
-    let y = e.touches[0].clientY,
-      offsettop = this.data.boxTop,
-      that = this;
-    //判断选择区域,只有在选择区才会生效
-    if (y > offsettop) {
-      let num = parseInt((y - offsettop) / 20);
+   
+    try{
+      var that=this
       this.setData({
-        listCur: that.data.list[num]
-      })
-    };
-  },
-
-  //触发全部开始选择
-  tStart() {
-    this.setData({
-      hidden: false
-    })
-  },
-
-  //触发结束选择
-  tEnd() {
-    this.setData({
-      hidden: true,
-      listCurID: this.data.listCur
-    })
-  },
-  indexSelect(e) {
-    let that = this;
-    let barHeight = this.data.barHeight;
-    let list = this.data.list;
-    let scrollY = Math.ceil(list.length * e.detail.y / barHeight);
-    for (let i = 0; i < list.length; i++) {
-      if (scrollY < i + 1) {
-        that.setData({
-          listCur: list[i],
-          movableY: i * 20
-        })
-        return false
-      }
+        userInfo:app.globalData.userInfo,
+        openid:app.globalData.openId
+      })      
+    }catch(E){
+      console.log(0);
     }
+    console.log(this.data.userInfo)
+    console.log(app.globalData.openId)
+    var userinfo=this.data.userinfo
+    var projId=23
+      wx.request({
+        url: 'http://wychandsome12138.xyz/api/post/join_proj',
+        method: "POST",
+        data:{
+          "id":app.globalData.openid,
+          "url": userinfo.avatarUrl,
+          "name":userinfo.nickname,
+          "projid": projId,
+        },
+        success: function(res){
+          console.log(res)
+         
+          wx.showToast({
+            title: '加入成功',
+          })
+        },
+        fail: function(res){
+          console.log("请求加入proj的request 失败！")
+        }
+      })
   },
   options: {
     addGlobalClass: true,

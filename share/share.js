@@ -1,4 +1,5 @@
 // share/share.js
+const app = getApp();
 Page({
 
   /**
@@ -11,12 +12,35 @@ Page({
   options: {
     addGlobalClass: true,
   },
-  
+  joinProj:function(){
+    console.log(app.globalData.userinfo)
+    wx.request({
+      url: 'http://wychandsome12138.xyz/api/post/join_proj',
+      method: "POST",
+      data:{
+        "id":app.globalData.openid,
+        "url": app.globalData.userinfo.avatarUrl,
+        "name":app.globalData.userinfo.nickname,
+        "projid": projId,
+      },
+      success: function(res){
+        console.log(res)
+       
+        wx.showToast({
+          title: '加入成功',
+        })
+      },
+      fail: function(res){
+        console.log("请求加入proj的request 失败！")
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     console.log(options);
+ 
   },
 
   /**

@@ -51,10 +51,11 @@ App({
                 success: function(res) {
                   var that=this;
                   userOpenId=res.result.userInfo.openId;
-                  console.log(userOpenId);
+                  //console.log(userOpenId);
                   var app = getApp();
                   
                   app.globalData.openId=userOpenId;
+                  //console.log(app.globalData.openId)
                   wx.request({
                     url: 'http://wychandsome12138.xyz:996/api/post/user_sign',
                     method: "POST",

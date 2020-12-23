@@ -12,7 +12,7 @@
 
 <view class="container">
   <text class="inv text-lg text-bold">XXX邀请您加入</text>
-  <button class="btn text-gray">加入</button>
-  <button class="btn bg-grey light">拒绝</button>
+  <button class="btn text-gray" bindtap="joinProj">加入</button>
+  <button class="btn bg-grey light" bintap="refuse">拒绝</button>
 </view>
 

@@ -83,6 +83,7 @@ Component({
   },
   lifetimes:{
     onLoad: function (options) {
+      console.log(options);
     }
   },
   methods:{
