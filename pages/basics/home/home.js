@@ -79,6 +79,10 @@ Component({
     elements:{
       type:Object,
       value:{}
+    },
+    portraits:{
+      type:Object,
+      value:{}
     }
   },
   lifetimes:{
@@ -97,6 +101,12 @@ Component({
       this.setData({
         rippleStyle:'top:'+y+'px;left:'+x+'px;-webkit-animation: ripple 0.4s linear;animation:ripple 0.4s linear;'
       });
+    }
+  },
+  pageLifetimes: {
+    show: function() {
+      // console.log(portraits)
+      // 页面被展示
     }
   }
 })

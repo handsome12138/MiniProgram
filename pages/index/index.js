@@ -5,7 +5,8 @@ Page({
     userInfo:[],
     hasUserInfo:false,
     usrid: "test_usrid",
-    elements: []
+    elements: [],
+    portraits: []
     // usrid 应该通过接口获取后setdata
   },
   onLoad: function () {
@@ -21,14 +22,15 @@ Page({
         for(i in res.data){//i 为下标
           pid_list.push(res.data[i].pid)
         };
+        // 这里是获取通过Projlist获取详细信息的request
         wx.request({
-          url: 'http://wychandsome12138.xyz:996/api/get/get_proj_content',
+          url: 'https://wychandsome12138.xyz/api/get/get_proj_content',
           method: "POST",
           data:{
             "projid": pid_list
           },
           success: function(res){
-            console.log(res)
+            // console.log(res.data)
             for(i in res.data){
               temp = res.data[i];
               back.push({
@@ -38,6 +40,7 @@ Page({
                 id:temp.id
               })
             }
+            console.log(back)
             _this.setData({
               elements: back
             })
@@ -45,7 +48,34 @@ Page({
           fail: function(res){
             console.log("请求proj content的 list的request 失败！")
           }
-        })
+        });
+        // 这里是通过projlist 获取用户头像列表的request
+        wx.request({
+          url: 'https://wychandsome12138.xyz/api/get/get_user_portrait_by_idlist',
+          method: "POST",
+          data:{
+            "projid": pid_list
+          },
+          success: function(res){
+            console.log(res.data)
+            // for(i in res.data){
+            //   temp = res.data[i];
+            //   back.push({
+            //     title: temp.pname,
+            //     name: temp.content,
+            //     ddl: temp.ddl,
+            //     id:temp.id
+            //   })
+            // }
+            _this.setData({
+              portraits: res.data
+            })
+          },
+          fail: function(res){
+            console.log("请求proj 头像的 list的request 失败！")
+          }
+        });
+
       },
       fail: function(res) {
         console.log("请求数据失败!!");
