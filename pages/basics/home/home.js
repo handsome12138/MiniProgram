@@ -65,12 +65,7 @@ Component({
         number:3
       }
     ],
-    members:[
-      {
-        name: '唐呈凌',
-        url:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
-      },
-    ]
+  
   },
   /**
    * 组件的属性列表

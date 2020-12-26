@@ -33,10 +33,11 @@ Page({
             // console.log(res.data)
             for(i in res.data){
               temp = res.data[i];
+              console.log()
               back.push({
                 title: temp.pname,
                 name: temp.content,
-                ddl: temp.ddl,
+                ddl: temp.ddl.substring(0, 10),
                 id:temp.id
               })
             }
