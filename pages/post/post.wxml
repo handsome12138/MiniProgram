@@ -4,10 +4,12 @@
 			<view class="title">任务名</view>
 			<input placeholder="输入任务名字"></input>
 		</view>
+		<!--
 		<view class="cu-form-group">
 			<view class="title">标签</view>
 			<input placeholder="添加任务标签"></input>
-		</view>
+		</view>	
+		-->
 		<view class="cu-form-group align-start">
 			<view class="title">详情</view>
 			<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="任务详情介绍"></textarea>
@@ -20,38 +22,13 @@
 				</view>
 			</picker>
 		</view>
-		<view class="cu-bar bg-white">
-		<view class="action">
-			图片上传
-		</view>
-		<view class="action">
-			{{imgList.length}}/4
-		</view>
-	</view>
-	<view class="cu-form-group">
-		<view class="grid col-4 grid-square flex-sub">
-			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
-				<image src='{{imgList[index]}}' mode='aspectFill'></image>
-				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
-					<text class="cuIcon-close"></text>
-				</view>
-			</view>
-			<view class="solids" bindtap="ChooseImage">
-				<text class="cuIcon-cameraadd"></text>
-			</view>
-		</view>
-	</view>
+
+
 	
 	
 		<view wx:for="{{info}}" wx:key="key">
-  			<view class="cu-form-group margin-top">
-			<view class="title">子任务名</view>
-			<input placeholder="输入子任务名称"></input>
-		</view>
-		<view class="cu-form-group align-start">
-			<view class="title">详情</view>
-			<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="子任务详情介绍"></textarea>
-		</view>
+
+		
 		<view class="cu-form-group">
 			<view class="title">DDL</view>
 			<picker mode="date" value="{{date}}" start="2020-09-01" end="2021-09-01" bindchange="DateChange">
@@ -63,7 +40,6 @@
  		</view>
 	</form>
 
-	<button class="text-grey" bindtap='additem' style="margin-top:15px;"> 添加子任务</button>  
 	<view >
   	<button type="primary" style="margin-bottom:15px;margin-top:15px">提交</button>
 	</view>
