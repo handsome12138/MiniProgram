@@ -47,6 +47,8 @@
     "hidedInDevtools": []
   },
   "scripts": {},
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
   "condition": {
     "search": {
       "current": -1,
@@ -83,6 +85,12 @@
           "name": "pages/index/index",
           "pathName": "pages/index/index",
           "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "share/share",
+          "pathName": "share/share",
           "scene": null
         }
       ]

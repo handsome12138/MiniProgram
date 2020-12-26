@@ -1,6 +1,6 @@
 <view class="cu-bar fix bg-white {{isFixedTop?'fixed':''}}">
     <view class="action sub-title" style="margin-bottom:20rpx">
-      <text class="text-xl text-bold" style="margin-top:15rpx">Project1</text>
+      <text class="text-xl text-bold" style="margin-top:15rpx">Project{{projContent.content[0].pname}}</text>
       <text class="bg-grey" style="width:4rem"></text>
       <!-- last-child选择器-->
     </view>
@@ -11,16 +11,16 @@
   </view>
     <navigator  open-type="navigate" hover-class='none' url="/pages/basics/members/members">
        <view class="bg-gray round bar" >
-      <view class="cu-avatar avatar round lg margin" wx:for="{{4}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);">
+      <view class="cu-avatar avatar round lg margin" wx:for="{{projContent.portraits}}" wx:for-item="item" style="background-image:url({{item.url}});">
       </view>
       <text class='cuIcon-right' style="margin:10rpx"></text>
       </view>
     </navigator>
 </view>
-
+<!-- 上面是显示头像的地方 -->
 
 <view class="cu-bar" wx:if="{{isFixedTop}}"></view>
-<mission wx:if="{{PageCur=='missionslist'}}"></mission>
+<mission wx:if="{{PageCur=='missionslist'}}" done_tasks="{{projContent.done_tasks}}" undone_tasks="{{projContent.undone_tasks}}" ></mission>
 <record wx:if="{{PageCur=='record'}}"></record>
 <view class="cu-bar tabbar bg-white foot">
     <view class="action {{PageCur=='missionslist'?'':'text-gray'}}" data-cur="missionslist" bindtap="NavChange">

@@ -6,16 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    projId:0
-
+    projId:0,
+    projContent: null
   },
   options: {
     addGlobalClass: true,
   },
   joinProj:function(){
-    console.log(app.globalData.userinfo)
+    // console.log(app.globalData.userinfo)
     wx.request({
-      url: 'http://wychandsome12138.xyz/api/post/join_proj',
+      url: 'https://wychandsome12138.xyz/api/post/join_proj',
       method: "POST",
       data:{
         "id":app.globalData.openid,
@@ -40,7 +40,6 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
- 
   },
 
   /**

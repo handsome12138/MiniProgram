@@ -50,6 +50,19 @@ Component({
     }]
 
   },
+    /**
+   * 组件的属性列表
+   */
+  properties: {
+    done_tasks:{
+      type:Object,
+      value:{}
+    },
+    undone_tasks:{
+      type:Object,
+      value:{}
+    }
+  },
    methods:{
      tap:function(){
         this.donghua();

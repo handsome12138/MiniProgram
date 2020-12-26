@@ -102,11 +102,5 @@ Component({
         rippleStyle:'top:'+y+'px;left:'+x+'px;-webkit-animation: ripple 0.4s linear;animation:ripple 0.4s linear;'
       });
     }
-  },
-  pageLifetimes: {
-    show: function() {
-      // console.log(portraits)
-      // 页面被展示
-    }
   }
 })

@@ -15,7 +15,7 @@
 
 	<view class='nav-list'  wx:if="{{elements.length>0}}">
 		<!-- <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.title}}/{{item.title}}" class="nav-li bg-white light" wx:for="{{elements}}" wx:key="item"> -->
-		<navigator open-type="navigate" url="/pages/basics/Project1/Project1?projId={{item.id}}" hover-class='none' class="nav-li bg-white light" wx:for="{{elements}}" wx:key="item">
+		<navigator open-type="navigate" url="/pages/basics/Project1/Project1?projID={{item.id}}" hover-class='none' class="nav-li bg-white light" wx:for="{{elements}}" wx:key="item">
 			<view class="nav-title">{{item.title}}</view>
 			<!-- <view class="cu-avatar-group align-center margin1">
 				<view class="cu-avatar round sm" wx:for="{{4}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
