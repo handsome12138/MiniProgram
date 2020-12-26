@@ -6,15 +6,18 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     index: null,
-    picker: ['喵喵喵', '汪汪汪', '哼唧哼唧'],
+    proj_name: null,
+    proj_content: null,
+    proj_ddl: null
+    // picker: ['喵喵喵', '汪汪汪', '哼唧哼唧'],
 
-    multiIndex: [0, 0, 0],
-    time: '12:01',
-    date: '2020-11-27',
-    imgList:[],
-    modalName: null,
-    textareaAValue: '',
-    textareaBValue: ''
+    // multiIndex: [0, 0, 0],
+    // time: '12:01',
+    // date: '2020-11-27',
+    // imgList:[],
+    // modalName: null,
+    // textareaAValue: '',
+    // textareaBValue: ''
   },
   PickerChange(e) {
     console.log(e);
@@ -108,4 +111,39 @@ Page({
         title:e.detail.value,  
         })  
     },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var _this = this;
+    var mydate = new Date();
+    this.setData({
+      proj_ddl: mydate.toLocaleDateString().replace(/\//g,'-')
+      // 用当前时间初始化
+    })
+  },
+  submit_create: function(){
+    var _this = this;
+    console.log(_this.data.proj_name, _this.data.proj_content, _this.data.proj_ddl);
+    // 这是绑定给提交按钮的时间，调用接口提交create
+    wx.request({
+      url: 'https://wychandsome12138.xyz/api/post/create_proj',
+      method: "POST",
+      data:{
+        "usrid": "create_proj_test_id",
+        // ====================之后这里要换成openid的 ===============
+        "projcolor": 255, //这没什么用
+        "projname": _this.data.proj_name,
+        "content": _this.data.proj_content,
+        "ddl": _this.data.proj_ddl
+      },
+      success: function(res){
+        console.log(res.data)
+      },
+      fail: function(res){
+        console.log("create project 的 wx request 失败！")
+      }
+    })
+
+  }
 })

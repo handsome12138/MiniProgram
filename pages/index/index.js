@@ -16,6 +16,7 @@ Page({
       method: "POST", // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT 
       data: {
         "usrid":"test_usrid"
+        // 这里最后要用用户的openid的
       },
       success: function(res) {
         console.log("success request");
@@ -179,9 +180,9 @@ Page({
   },
   onShareAppMessage() {
     return {
-      title: 'TeamHelprt',
+      title: 'TeamHelper',
       imageUrl: '/images/share.jpg',
-      path: '/pages/index/index'
+      path: '/share/share'
     }
   }  
 })

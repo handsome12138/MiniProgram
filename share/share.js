@@ -19,8 +19,8 @@ Page({
       method: "POST",
       data:{
         "id":app.globalData.openid,
-        "url": app.globalData.userinfo.avatarUrl,
-        "name":app.globalData.userinfo.nickname,
+        "url": app.globalData.userInfo.avatarUrl,
+        "name":app.globalData.userInfo.nickname,
         "projid": projId,
       },
       success: function(res){
@@ -39,7 +39,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+    // console.log(options);
   },
 
   /**
