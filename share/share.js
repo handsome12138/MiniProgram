@@ -13,6 +13,7 @@ Page({
     addGlobalClass: true,
   },
   joinProj:function(){
+    console.log(app.globalData.openId)
     // console.log(app.globalData.userinfo)
     wx.request({
       url: 'https://wychandsome12138.xyz/api/post/join_proj',
@@ -40,6 +41,26 @@ Page({
    */
   onLoad: function (options) {
     // console.log(options);
+    wx.getUserInfo({
+      success: res => {
+        console.log(res.userInfo)
+        this.globalData.userInfo = res.userInfo
+      }
+    })
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'getProj',
+      // 传给云函数的参数
+      data: {},
+      success: function(res) {
+        var that=this;
+        userOpenId=res.result.userInfo.openId;
+        console.log(userOpenId);
+        var app = getApp();
+        app.globalData.openId=userOpenId;
+        console.log(app.globalData.openId)
+      }
+    })
   },
 
   /**

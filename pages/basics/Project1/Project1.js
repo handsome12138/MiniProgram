@@ -4,7 +4,7 @@ Page({
     navbarInitTop: 0, //导航栏初始化距顶部的距离
     isFixedTop: true, //是否固定顶部
     PageCur: 'missionslist',
-    date: '2020-11-27',
+    date: '2020-12-27',
     pid: null,
     projContent: null,
     portraits: null

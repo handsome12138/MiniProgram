@@ -87,9 +87,6 @@ Page({
     })
     // wx.request 范例
     // var pidlist = [item.pid for (item of projlist)]
-    
-
-
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

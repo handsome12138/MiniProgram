@@ -8,16 +8,10 @@ Page({
     index: null,
     proj_name: null,
     proj_content: null,
-    proj_ddl: null
-    // picker: ['喵喵喵', '汪汪汪', '哼唧哼唧'],
+    proj_ddl: null,
+    userInfo:null,
+    openId:null
 
-    // multiIndex: [0, 0, 0],
-    // time: '12:01',
-    // date: '2020-11-27',
-    // imgList:[],
-    // modalName: null,
-    // textareaAValue: '',
-    // textareaBValue: ''
   },
   PickerChange(e) {
     console.log(e);
@@ -72,22 +66,6 @@ Page({
       current: e.currentTarget.dataset.url
     });
   },
-  DelImg(e) {
-    wx.showModal({
-      title: '召唤师',
-      content: '确定要删除这段回忆吗？',
-      cancelText: '再看看',
-      confirmText: '再见',
-      success: res => {
-        if (res.confirm) {
-          this.data.imgList.splice(e.currentTarget.dataset.index, 1);
-          this.setData({
-            imgList: this.data.imgList
-          })
-        }
-      }
-    })
-  },
   textareaAInput(e) {
     this.setData({
       textareaAValue: e.detail.value
@@ -99,10 +77,11 @@ Page({
     })
   },
     additem:function(){ 
+    var that=this;
     var info = this.data.info; 
     info.push(1);
     console.log(info)  
-    this.setData({  
+    that.setData({  
         info:info 
         }) 
     },
@@ -117,14 +96,34 @@ Page({
   onLoad: function (options) {
     var _this = this;
     var mydate = new Date();
-    this.setData({
+    _this.setData({
       proj_ddl: mydate.toLocaleDateString().replace(/\//g,'-')
       // 用当前时间初始化
+    })
+    wx.getUserInfo({
+      success: res => {
+        //console.log(res)
+        _this.setData({
+          userInfo:res.userInfo
+        })
+      }
+    })
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'getProj',
+      // 传给云函数的参数
+      data: {},
+      success: function(res) {
+        //console.log(res.result.userInfo.openId)
+        _this.setData({
+          openId:res.result.userInfo.openId
+        })
+      }
     })
   },
   submit_create: function(){
     var _this = this;
-    console.log(_this.data.proj_name, _this.data.proj_content, _this.data.proj_ddl);
+    console.log(_this.data.proj_name, _this.data.proj_content, _this.data.proj_ddl,_this.data.openId);
     // 这是绑定给提交按钮的时间，调用接口提交create
     wx.request({
       url: 'https://wychandsome12138.xyz/api/post/create_proj',
@@ -132,6 +131,7 @@ Page({
       data:{
         "usrid": "create_proj_test_id",
         // ====================之后这里要换成openid的 ===============
+        "openid":_this.data.openId,
         "projcolor": 255, //这没什么用
         "projname": _this.data.proj_name,
         "content": _this.data.proj_content,

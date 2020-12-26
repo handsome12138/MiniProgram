@@ -8,7 +8,7 @@ Page({
     openid:null
   },
   onShareAppMessage: function () {
-    console.log(userInfo.nickName);
+    //console.log(userInfo.nickName);
     var projId=23;
     return {
         title: 'TeamHelper',
