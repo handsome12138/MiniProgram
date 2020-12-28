@@ -68,8 +68,7 @@ App({
                       "name":userBasicInfo.nickName
                     },
                     success: function(res){
-                      console.log(res)
-                    
+                        console.log(res)
                       },
                       fail: function(res){
                         console.log("请求User login的request 失败！")
@@ -94,6 +93,5 @@ App({
         
       }
     })          
-}
-  
+  }  
 })

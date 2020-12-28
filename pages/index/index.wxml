@@ -1,4 +1,4 @@
-<basics wx:if="{{PageCur=='basics'}}" elements="{{elements}}" portraits="{{portraits}}"></basics>
+<home wx:if="{{PageCur=='basics'}}" elements="{{elements}}" users="{{users}}"></home>
 <mypage wx:if="{{PageCur=='mypage'}}"></mypage>
   <view class="cu-bar tabbar bg-white foot">
     <view class="action {{PageCur=='basics'?'':'text-gray'}}" data-cur="basics" bindtap="NavChange">

@@ -6,7 +6,7 @@
   "setting": {
     "urlCheck": false,
     "es6": true,
-    "enhance": false,
+    "enhance": true,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
@@ -21,16 +21,16 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
     "useIsolateContext": true,
-    "useCompilerModule": false,
+    "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
-    "useMultiFrameRuntime": false,
-    "useApiHook": true,
     "packNpmManually": false,
     "packNpmRelationList": []
   },
@@ -99,6 +99,13 @@
           "name": "pages/post/post",
           "pathName": "pages/post/post",
           "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/basics/members/members",
+          "pathName": "pages/basics/members/members",
+          "query": "pid=34",
           "scene": null
         }
       ]

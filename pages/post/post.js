@@ -108,6 +108,7 @@ Page({
         })
       }
     })
+    wx.cloud.init();
     wx.cloud.callFunction({
       // 云函数名称
       name: 'getProj',
@@ -129,9 +130,9 @@ Page({
       url: 'https://wychandsome12138.xyz/api/post/create_proj',
       method: "POST",
       data:{
-        "usrid": "create_proj_test_id",
-        // ====================之后这里要换成openid的 ===============
-        "openid":_this.data.openId,
+        // "usrid": "create_proj_test_id",
+        // ==================== 上为测试id, 下为openid ===============
+        "usrid":_this.data.openId,
         "projcolor": 255, //这没什么用
         "projname": _this.data.proj_name,
         "content": _this.data.proj_content,
