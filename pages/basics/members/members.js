@@ -34,7 +34,7 @@ Page({
           _this.setData({
             users: res.data[_this.data.pid]
           });
-          console.log(res.data[_this.data.pid]);
+          // console.log(res.data[_this.data.pid]);
         },
         fail: function(res){
           console.log("请求proj users的 list的request 失败！")
