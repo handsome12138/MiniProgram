@@ -29,12 +29,14 @@
     </view>
     <!-- <navigator class="action" hover-class="none" url="/pages/post/post">-->
 
-    <navigator class="action" hover-class="none" bindtap="showModal" data-target="{{PageCur=='missionslist'?'DialogModal1':'DialogModal2'}}">
+    <!-- <navigator class="action" hover-class="none" bindtap="showModal" data-target="{{PageCur=='missionslist'?'DialogModal1':'DialogModal2'}}"> -->
+    <view class="action" hover-class="none" bindtap="showModal" data-target="{{PageCur=='missionslist'?'DialogModal1':'DialogModal2'}}">
       <view class="action text-gray light add-action" >
       <button class="cu-btn cuIcon-add bg-grey shadow"></button>
       {{PageCur=='missionslist'?'添加子任务':'添加记录'}} 
       </view>
-    </navigator>
+    </view>
+    <!-- </navigator> -->
     <view class="action {{PageCur=='record'?'':'text-gray'}} " data-cur="record" bindtap="NavChange">
       <view class="{{PageCur=='record'?'cuIcon-recordfill':'cuIcon-record'}}">
       </view>
@@ -51,21 +53,22 @@
       <form>
         <view class="cu-form-group">
           <view class="title">任务名</view>
-          <input ></input>
+          <input model:value="{{new_task_title}}"></input>
         </view>
-        <view class="cu-form-group">
+        <!-- <view class="cu-form-group">
           <view class="title">标签</view>
           <input style='font-size:16px'></input>
-        </view>
+        </view> -->
         <view class="cu-form-group align-start">
           <view class="title">详情</view>
-          <textarea style='font-size:16px' maxlength="-1" bindinput="textareaBInput" ></textarea>
+          <textarea style='font-size:16px' maxlength="-1" model:value="{{new_task_content}}"></textarea>
+          <!-- <textarea style='font-size:16px' maxlength="-1" bindinput="textareaBInput" model:value="new_task.title"></textarea> -->
         </view>
         <view class="cu-form-group">
           <view class="title">DDL</view>
-          <picker mode="date" value="{{date}}" start="2020-09-01" end="2025-09-01" bindchange="DateChange">
+          <picker mode="date" model:value="{{new_task_ddl}}" start="2020-09-01" end="2025-09-01" bindchange="DateChange">
             <view class="picker">
-              {{date}}
+              {{new_task_ddl}}
             </view>
           </picker>
         </view>
@@ -74,7 +77,7 @@
     <view class="cu-bar bg-white justify-end">
       <view class="action" style="margin-bottom:20px;margin-top:20px;">
         <button class="cu-btn line-green text-green" style="width:150px;margin-left:50px;margin-right:20px" bindtap="hideModal">取消</button>
-        <button class="cu-btn bg-green margin-left" style="width:150px;margin-right:50px;margin-left:20px"bindtap="hideModal">确定</button>
+        <button class="cu-btn bg-green margin-left" style="width:150px;margin-right:50px;margin-left:20px"bindtap="submit_create_task">确定</button>
       </view>
     </view>
   </view>

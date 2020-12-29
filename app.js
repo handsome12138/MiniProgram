@@ -6,7 +6,8 @@ App({
     secret:"bcd0ad6883cd9440b12605608cccb787",
     openId:null,
     getUserInfoReady:false,
-    access_token:null
+    access_token:null,
+    userinfo_access: false
   },
   onLaunch: function () {
     // 展示本地存储能力

@@ -107,6 +107,13 @@
           "pathName": "pages/basics/members/members",
           "query": "pid=34",
           "scene": null
+        },
+        {
+          "id": 5,
+          "name": "pages/basics/Project1/Project1",
+          "pathName": "pages/basics/Project1/Project1",
+          "query": "projID=34",
+          "scene": null
         }
       ]
     }

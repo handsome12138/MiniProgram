@@ -7,7 +7,11 @@ Page({
     date: '2020-12-27',
     pid: null,
     projContent: null,
-    portraits: null
+    portraits: null,
+    new_task_title: null,
+    new_task_content: null,
+    new_task_ddl: null,
+    new_task_create_day: null
   }, 
   NavChange(e) {
     this.setData({
@@ -18,27 +22,14 @@ Page({
     // var projid = options.projID;
     var _this = this;
     let that = this;
-    this.setData({
-      pid: options.projID
+    var mydate = new Date();
+    _this.setData({
+      pid: options.projID,
+      new_task_ddl: mydate.toLocaleDateString().replace(/\//g,'-'),
+      new_task_create_day: mydate.toLocaleDateString().replace(/\//g,'-')
     },
     () => {
-      console.log(_this.pid); //按理来说这里作为回调应该已经赋值完了才对，奇怪
-      wx.request({
-        url: 'https://wychandsome12138.xyz/api/get/get_one_proj_all',
-        method: "POST",
-        data:{
-          "pid": options.projID
-        },
-        success: function(res){
-          console.log(res.data)
-          _this.setData({
-            projContent: res.data
-          })
-        },
-        fail: function(res){
-          console.log("请求proj 所有数据的request 失败！")
-        }
-      });
+      _this.get_db_info(_this);
     })
     setTimeout(function() {
       that.setData({
@@ -57,4 +48,52 @@ Page({
       modalName: null
     })
   },
+  submit_create_task(e){
+    console.log("创建任务成功");
+    var _this = this;
+    this.hideModal(e);
+    wx.request({
+      url: 'https://wychandsome12138.xyz/api/post/create_task',
+      method: "POST",
+      data:{
+        "pid": _this.data.pid,
+        "vid": 1, //因为没考虑版本，所以暂时忽略
+        "title": _this.data.new_task_title,
+        "content": _this.data.new_task_content,
+        "ddl": _this.data.new_task_ddl,
+        "create_day": _this.data.new_task_create_day,
+        // 下面都是暂时用不到的东西
+        "method": 0,
+        "need_min": 2,
+        "need_max": 5,
+        "color": 255
+      },
+      success: function(res){
+        console.log("request to create task success!");
+        console.log(res.data);
+        _this.get_db_info(_this);
+      },
+      fail: function(res){
+        console.log("create task 的 wx request 失败！")
+      }
+    })
+  },
+  get_db_info(_this){
+    wx.request({
+      url: 'https://wychandsome12138.xyz/api/get/get_one_proj_all',
+      method: "POST",
+      data:{
+        "pid": _this.data.pid
+      },
+      success: function(res){
+        console.log(res.data)
+        _this.setData({
+          projContent: res.data
+        })
+      },
+      fail: function(res){
+        console.log("请求proj 所有数据的request 失败！")
+      }
+    });
+  }
 })
