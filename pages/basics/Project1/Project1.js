@@ -11,7 +11,8 @@ Page({
     new_task_title: null,
     new_task_content: null,
     new_task_ddl: null,
-    new_task_create_day: null
+    new_task_create_day: null,
+    percentage: '0%',
   }, 
   NavChange(e) {
     this.setData({
@@ -88,7 +89,8 @@ Page({
       success: function(res){
         console.log(res.data)
         _this.setData({
-          projContent: res.data
+          projContent: res.data,
+          percentage: (res.data.done_tasks.length / (res.data.done_tasks.length + res.data.undone_tasks.length) * 100).toString() + '\%',
         })
       },
       fail: function(res){

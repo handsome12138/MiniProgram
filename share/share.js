@@ -16,7 +16,6 @@ Page({
   //   addGlobalClass: true,
   // },
   joinProj:function(options){
-    // console.log(app.globalData.userinfo)
     _this.setData({
       pid: options.pid,
       projinfo: options.projinfo
