@@ -1,0 +1,15 @@
+<!--pages/basics/hello/hello.wxml-->
+<!-- <text>pages/basics/hello/hello.wxml</text> -->
+<!-- <functional-page-navigator
+    name="loginAndGetUserInfo"
+    args="{{ args }}"
+    version="develop"
+    bind:success="loginSuccess"
+    bind:fail="loginFail"
+  >
+    <button class="login">登录到插件</button>
+  </functional-page-navigator> -->
+
+<view class='warp' hidden='{{eye}}'>
+    <button open-type="getUserInfo" hover-class='none' bindgetuserinfo="getUserInfoFun">.</button> 
+</view>

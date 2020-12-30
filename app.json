@@ -8,6 +8,7 @@
     "pages/post/post",
     "pages/basics/members/members",
     "pages/basics/message/message",
+    "pages/basics/hello/hello",
     "share/share",
     "pages/basics/mission/mission"
   ],
@@ -21,5 +22,7 @@
     "cu-custom": "/colorui/components/cu-custom"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "plugins":{
+  }
 }

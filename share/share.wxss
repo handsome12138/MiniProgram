@@ -30,3 +30,23 @@
 .btn{
   margin-bottom: 20px;
 }
+button::after{
+  border: none;
+}
+.warp{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.warp button {
+  width: 100%;
+  height:100%;
+  margin: 0px;
+  border: 0px;
+  /* position: absolute; */
+  border-radius:0px 0px 0px 0px;
+  color: transparent;
+  background:transparent no-repeat center center;
+  background-size: cover;   
+  /* background-image: url(""）; */
+}

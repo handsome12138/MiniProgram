@@ -1,27 +1,33 @@
 // share/share.js
 const app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    projId:0,
-    projContent: null
+    eye:true,
+    userInfo:null,
+    hasUserInfo:false,
+    openid: null, 
+    pid:0,
+    projinfo: null
   },
-  options: {
-    addGlobalClass: true,
-  },
-  joinProj:function(){
-    console.log(app.globalData.openId)
+  // options: {
+  //   addGlobalClass: true,
+  // },
+  joinProj:function(options){
     // console.log(app.globalData.userinfo)
+    _this.setData({
+      pid: options.pid,
+      projinfo: options.projinfo
+    });
     wx.request({
       url: 'https://wychandsome12138.xyz/api/post/join_proj',
       method: "POST",
       data:{
-        "id":app.globalData.openid,
-        "url": app.globalData.userInfo.avatarUrl,
-        "name":app.globalData.userInfo.nickname,
+        "id": this.data.openid,
+        "url": this.data.userInfo.avatarUrl,
+        "name":this.data.userInfo.nickName,
         "projid": projId,
       },
       success: function(res){
@@ -40,25 +46,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options);
-    wx.getUserInfo({
-      success: res => {
-        console.log(res.userInfo)
-        this.globalData.userInfo = res.userInfo
-      }
-    })
+    var _this = this;
+    this.getUserInfoFun();
+    wx.cloud.init();
     wx.cloud.callFunction({
       // 云函数名称
       name: 'getProj',
       // 传给云函数的参数
       data: {},
       success: function(res) {
-        var that=this;
-        userOpenId=res.result.userInfo.openId;
-        console.log(userOpenId);
-        var app = getApp();
-        app.globalData.openId=userOpenId;
-        console.log(app.globalData.openId)
+        //console.log(res.result.userInfo.openId)
+        _this.setData({
+          openid:res.result.userInfo.openId
+        })
       }
     })
   },
@@ -74,7 +74,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // console.log(this.data.eye)
   },
 
   /**
@@ -110,5 +110,29 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getUserInfoFun: function (){
+    var _this = this;
+    wx.getUserInfo({
+        success: function (res){
+          console.log(res)　　　　　　　//do anything
+          _this.setData({
+            userInfo: res,
+            eye: true
+          })
+        },
+        fail: function(res){
+          // _this.showPrePage();
+          _this.setData({
+            eye: false
+          })
+        }
+      })
+  },
+  showPrePage:function(){
+      console.log("show PrePage");
+      this.setData({
+        eye:false
+      })
   }
 })

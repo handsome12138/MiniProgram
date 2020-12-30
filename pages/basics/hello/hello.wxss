@@ -1,0 +1,14 @@
+/* pages/basics/hello/hello.wxss */
+button::after{
+    border: none;
+}
+.warp button {
+    width: 100%;
+    height:100%;
+    position: absolute;
+    border-radius:0px 0px 0px 0px;
+    color: transparent;
+    background:transparent no-repeat center center;
+    background-size: cover;   
+    /* background-image: url(""）; */
+}

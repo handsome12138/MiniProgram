@@ -114,6 +114,13 @@
           "pathName": "pages/basics/Project1/Project1",
           "query": "projID=34",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/basics/hello/hello",
+          "pathName": "pages/basics/hello/hello",
+          "query": "",
+          "scene": null
         }
       ]
     }

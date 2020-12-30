@@ -1,18 +1,25 @@
 <!--share/share.wxml-->
+<!-- <view class="warp" hidden="{{eye}}"> -->
+  <block wx:if="{{!eye}}">
+    <cover-view class="warp">
+        <button open-type="getUserInfo" hover-class='none' bindgetuserinfo="getUserInfoFun" style="width:100%">获取权限</button> 
+    </cover-view>
+  </block>
 
-<view  open-type="navigate" hover-class='none' class="nav-li bg-white light card align-center margin1">
-  <view class="nav-title">Project1</view>
-  <view class="cu-avatar-group align-center" >
-        <view class="cu-avatar round sm" wx:for="2" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
-  </view>
-  <view class="nav-name">微信小程序制作</view>
-  <view class="nav-ddl">DDL:12月21日</view>
-  <text class='cuIcon-newsfill'></text>
-</view>
-
-<view class="container">
-  <text class="inv text-lg text-bold">XXX邀请您加入</text>
-  <button class="btn text-gray" bindtap="joinProj">加入</button>
-  <button class="btn bg-grey light" bintap="refuse">拒绝</button>
-</view>
-
+  <!-- <block wx:else> -->
+    <view  open-type="navigate" hover-class='none' class="nav-li bg-white light card align-center margin1">
+      <view class="nav-title">Project1</view>
+      <view class="cu-avatar-group align-center" >
+            <view class="cu-avatar round sm" wx:for="2" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+      </view>
+      <view class="nav-name">微信小程序制作</view>
+      <view class="nav-ddl">DDL:12月21日</view>
+      <text class='cuIcon-newsfill'></text>
+    </view>
+    
+    <view class="container">
+      <text class="inv text-lg text-bold">XXX邀请您加入</text>
+      <button class="btn text-gray" bindtap="joinProj" type="primary">加入</button>
+      <button class="btn bg-grey light" bintap="refuse">拒绝</button>
+    </view>
+  <!-- </block>     -->
