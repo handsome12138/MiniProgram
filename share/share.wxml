@@ -1,12 +1,12 @@
 <!--share/share.wxml-->
 <!-- <view class="warp" hidden="{{eye}}"> -->
   <block wx:if="{{!eye}}">
-    <cover-view class="warp">
-        <button open-type="getUserInfo" hover-class='none' bindgetuserinfo="getUserInfoFun" style="width:100%">获取权限</button> 
-    </cover-view>
+    <view class="access-box">
+      <button open-type="getUserInfo" hover-class="none" bindgetuserinfo="getUserInfoFun" type="default">获取权限</button> 
+    </view>
   </block>
 
-  <!-- <block wx:else> -->
+  <block wx:else>
     <view  open-type="navigate" hover-class='none' class="nav-li bg-white light card align-center margin1" style="margin:auto;text-align:center;margin-top:50rpx;height:auto">
       <!-- <view class="nav-title">{{projInfo.content[0].pname}}</view> -->
       <view class="text-xl text-bold">{{projInfo.content[0].pname}}</view>
@@ -25,4 +25,4 @@
       <button class="btn text-gray" bindtap="bind_joinProj" type="primary">加入</button>
       <button class="btn bg-grey light" bindtap="refuse" type="default">拒绝</button>
     </view>
-  <!-- </block>     -->
+  </block>    

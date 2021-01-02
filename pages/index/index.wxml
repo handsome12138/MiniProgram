@@ -1,3 +1,11 @@
+<!-- 首先判断app.js里是否获取了权限，否则弹窗提醒 -->
+<block wx:if="{{!accessReady}}">
+  <view class="access-box">
+      <button open-type="getUserInfo" hover-class="none" bindgetuserinfo="getAccessFun" type="default">获取权限</button> 
+  </view>
+</block>
+
+<block wx:else>
 <home wx:if="{{PageCur=='basics'}}" elements="{{elements}}" users="{{users}}"></home>
 <mypage wx:if="{{PageCur=='mypage'}}"></mypage>
   <view class="cu-bar tabbar bg-white foot">
@@ -23,4 +31,5 @@
   </view>
 
 
-   
+</block>
+

@@ -8,7 +8,7 @@
       <view class="cu-item">
         <view class="cu-avatar round lg" style="background-image:url({{user.url}})"></view>
         <view class="content">
-          <view class="text-grey"><text class="text-abc">{{user.name}}</text></view>
+          <view class="text-grey"><text>{{user.name}}</text></view>
           <view class="text-gray text-sm" wx:if="user.manager == '1'">
             管理员
           </view>

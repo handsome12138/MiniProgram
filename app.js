@@ -19,9 +19,10 @@ App({
       success: res => {
         // console.log("getSetting success")
         if (res.authSetting['scope.userInfo']) {
-        // if (true) {
           // 就是这里没成功。
           // console.log("auth setting is true")
+          this.globalData.getUserInfoReady = true;
+          // 这里赋值方便判断
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           var userBasicInfo;
           var userOpenId;

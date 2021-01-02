@@ -1,6 +1,7 @@
 const app = getApp();
 Page({
   data: {
+    accessReady:null,
     PageCur: 'basics',
     userInfo:[],
     hasUserInfo:false,
@@ -12,6 +13,17 @@ Page({
   },
   onLoad: function () {
     var _this = this;
+     wx.getSetting({
+      success: res => {
+        // console.log("getSetting success")
+        _this.setData({
+          accessReady:res.authSetting['scope.userInfo']
+        })
+      }
+    })
+    // this.setData({
+    //   accessReady: app.globalData.getUserInfoReady
+    // })
     wx.cloud.init();
     wx.cloud.callFunction({
       // 云函数名称
@@ -199,5 +211,9 @@ Page({
     }
   });
   },
-  
+  getAccessFun:function(){
+    wx.reLaunch({
+      url: '/pages/index/index'
+    })
+  }
 })
