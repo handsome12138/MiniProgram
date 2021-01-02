@@ -6,7 +6,7 @@
     </view>
     <view class="progress">
       <view class="cu-progress round sm striped active">
-      <view class="bg-grey" style="width:{{loading?percentage:''}}"></view>
+      <view class="bg-grey" style="width:{{percentage}}"></view>
     </view>
   </view>
     <navigator  open-type="navigate" hover-class='none' url="/pages/basics/members/members?pid={{pid}}">

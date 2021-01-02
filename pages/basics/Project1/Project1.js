@@ -21,23 +21,15 @@ Page({
   },
   onLoad:function(options) {
     // var projid = options.projID;
-    var _this = this;
-    let that = this;
-    var mydate = new Date();
-    _this.setData({
+    this.setData({
       pid: options.projID,
-      new_task_ddl: mydate.toLocaleDateString().replace(/\//g,'-'),
-      new_task_create_day: mydate.toLocaleDateString().replace(/\//g,'-')
-    },
-    () => {
-      _this.get_db_info(_this);
     })
-    setTimeout(function() {
-      that.setData({
-        loading: true
-      })
-    }, 500)
-    
+    this.onRefresh();
+    // setTimeout(function() {
+    //   that.setData({
+    //     loading: true
+    //   })
+    // }, 500)
   },
   showModal(e) {
     this.setData({
@@ -91,6 +83,13 @@ Page({
         _this.setData({
           projContent: res.data,
           percentage: ( (res.data.done_tasks.length + res.data.undone_tasks.length) > 0 )?Math.floor(res.data.done_tasks.length / (res.data.done_tasks.length + res.data.undone_tasks.length) * 100).toString() + '\%':'0%',
+        }, ()=>{
+          //隐藏loading 提示框
+          wx.hideLoading();
+          //隐藏导航条加载动画
+          wx.hideNavigationBarLoading();
+          //停止下拉刷新
+          wx.stopPullDownRefresh();
         })
         // console.log(Math.floor(res.data.done_tasks.length / (res.data.done_tasks.length + res.data.undone_tasks.length) * 100).toString() + '\%')
       },
@@ -108,4 +107,24 @@ Page({
         path: "/share/share?pid=" + this.data.pid + "&inviter=" + app.globalData.userInfo.nickName // 路径，传递参数到指定页面。
     }
   },
+  onPullDownRefresh: function (){
+    wx.showNavigationBarLoading(); 
+    //显示 loading 提示框。需主动调用 wx.hideLoading 才能关闭提示框
+    wx.showLoading({
+      title: '刷新中...',
+    })
+    this.onRefresh();
+    
+  },
+  onRefresh: function(){
+    var _this = this;
+    var mydate = new Date();
+    _this.setData({
+      new_task_ddl: mydate.toLocaleDateString().replace(/\//g,'-'),
+      new_task_create_day: mydate.toLocaleDateString().replace(/\//g,'-')
+    },
+    () => {
+      _this.get_db_info(_this);
+    })
+  }
 })

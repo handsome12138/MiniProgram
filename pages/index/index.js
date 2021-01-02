@@ -1,7 +1,7 @@
 const app = getApp();
 Page({
   data: {
-    accessReady:null,
+    accessReady:true,
     PageCur: 'basics',
     userInfo:[],
     hasUserInfo:false,
