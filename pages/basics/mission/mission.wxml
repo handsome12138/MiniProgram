@@ -17,15 +17,16 @@
 </view>
 
 <view class="cu-list">
-  <view class="article no-card cu-card" wx:for="{{undone_tasks}}" wx:for-item="item" >
+  <view class="article no-card cu-card" wx:for="{{undone_tasks}}" wx:for-item="item">
     <view class="shadow cu-item">
       <view class="title">
         <view class="text-cut">{{item.title}}</view>
-        <text bindtap="tap" style="font-size:20px"class="cuIcon-round"></text>
+        <text bindtap="tap" data-type="undone" data-index="{{index}}" style="font-size:20px" class="{{undone_checks[index]?'cuIcon-roundcheck':'cuIcon-round'}}"></text>
+        <!-- 这里是右边的勾选框 -->
       </view>
       <view class="content">
         <view class="desc">
-          <view class="text-content detail">{{item.content}}</view>
+          <view class="text-content detail" style="height:auto;margin-left:30rpx">{{item.content}}</view>
           <view>
             <view class="cu-tag bg-gray light sm round">{{item.ddl}}</view>
             <!-- <view class="cu-tag bg-gray light sm round">{{item.ddl.substring(0:10)}}</view> -->
@@ -49,11 +50,12 @@
     <view class="cu-item shadow">
       <view class="title">
         <view class="text-cut">{{item.title}}</view>
-        <text style="font-size:20px" class="cuIcon-roundcheck"></text>
+        <text bindtap="tap" data-type="done" data-index="{{index}}" style="font-size:20px" class="{{done_checks[index]?'cuIcon-roundcheck':'cuIcon-round'}}"></text>
       </view>
       <view class="content">
         <view class="desc">
-          <view class="text-content detail">{{item.content}}</view>
+          <view class="text-content detail" style="height:auto;margin-left:30rpx">{{item.content}}</view>
+          <!-- 这里希望 content 的 text area 自适应高度 -->
           <view>
             <view class="cu-tag bg-gray light sm round">{{item.ddl}}</view>
             <!-- <view class="cu-tag bg-gray light sm round">{{item.tag}}</view> -->

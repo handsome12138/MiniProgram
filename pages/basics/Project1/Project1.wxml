@@ -21,6 +21,7 @@
 
 <view class="cu-bar" wx:if="{{isFixedTop}}"></view>
 <mission wx:if="{{PageCur=='missionslist'}}" done_tasks="{{projContent.done_tasks}}" undone_tasks="{{projContent.undone_tasks}}" ></mission>
+<!-- mission 组件是显示done和undone任务的区域 -->
 <record wx:if="{{PageCur=='record'}}"></record>
 <view class="cu-bar tabbar bg-white foot">
     <view class="action {{PageCur=='missionslist'?'':'text-gray'}}" data-cur="missionslist" bindtap="NavChange">

@@ -21,7 +21,7 @@ App({
         if (res.authSetting['scope.userInfo']) {
         // if (true) {
           // 就是这里没成功。
-          console.log("auth setting is true")
+          // console.log("auth setting is true")
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           var userBasicInfo;
           var userOpenId;
@@ -42,9 +42,9 @@ App({
                     'content-type': 'application/json' // 默认值
                   },
                   success(res) {
-                    console.log(res.data)
                     that.globalData.access_token=res.data.access_token;
-                    console.log(that.globalData.access_token)
+                    // console.log(res.data)
+                    // console.log(that.globalData.access_token)
                   }
                 })
                 wx.cloud.init();
@@ -55,7 +55,7 @@ App({
                   data: {},
                   success: function(res) {
                     var that=this;
-                    console.log(res);
+                    // console.log(res);
                     userOpenId=res.result.userInfo.openId;
                     //console.log(userOpenId);
                     var app = getApp();
@@ -72,7 +72,7 @@ App({
                       },
                       success: function(res){
                           console.log("user sign success!");
-                          console.log(res);
+                          // console.log(res);
                         },
                         fail: function(res){
                           console.log("请求User login的request 失败！")

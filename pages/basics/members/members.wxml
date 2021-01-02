@@ -1,6 +1,7 @@
 <scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" scroll-with-animation="true"
   enable-back-to-top="true">
-  <button open-type='share' style='margin-bottom:20px' class="sharebtn rounded">邀请同伴加入</button>
+  <!-- <button open-type='share' style='margin-bottom:20px' class="sharebtn rounded">邀请同伴加入</button> -->
+  <!-- 这个地方太丑了，并且可以通过分享实现，干脆先注释掉 -->
   <block wx:for="{{users}}" wx:for-item="user">
     <!-- <view class="indexItem-{{list[index]}}" id="indexes-{{list[index]}}" data-index="{{list[index]}}"></view> -->
     <view class="cu-list menu-avatar no-padding">

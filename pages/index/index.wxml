@@ -3,7 +3,8 @@
   <view class="cu-bar tabbar bg-white foot">
     <view class="action {{PageCur=='basics'?'':'text-gray'}}" data-cur="basics" bindtap="NavChange">
       <view class="cuIcon-homefill" >
-        <view class="cu-tag badge">5</view>
+        <!-- <view class="cu-tag badge">5</view> -->
+        <!-- 这里是右上角红点数字 -->
       </view> 任务
     </view>
     <navigator class="action" hover-class="none" url="/pages/post/post">
@@ -14,7 +15,8 @@
     </navigator>
     <view class="action {{PageCur=='mypage'?'':'text-gray'}} " data-cur="mypage" bindtap="NavChange">
       <view class="cuIcon-my">
-        <view class="cu-tag badge"></view>
+        <!-- <view class="cu-tag badge"></view> -->
+        <!-- 这里是右上角红点 -->
       </view>
       我的
     </view>

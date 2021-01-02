@@ -25,7 +25,7 @@
 			</view>
 			<view class="nav-name">{{item.name}}</view>
 			<view class="nav-ddl">DDL:{{item.ddl}}</view>
-			<text class='cuIcon-newsfill'></text>
+			<!-- <text class='cuIcon-newsfill'></text> -->
 			<!-- 右上角icon -->
 		</navigator>
 	</view>
