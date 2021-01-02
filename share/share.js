@@ -10,16 +10,13 @@ Page({
     hasUserInfo:false,
     openid: null, 
     pid:0,
-    projinfo: null
+    projinfo: null,
+    inviter:null
   },
   // options: {
   //   addGlobalClass: true,
   // },
-  joinProj:function(options){
-    _this.setData({
-      pid: options.pid,
-      projinfo: options.projinfo
-    });
+  bind_joinProj:function(options){
     wx.request({
       url: 'https://wychandsome12138.xyz/api/post/join_proj',
       method: "POST",
@@ -27,25 +24,37 @@ Page({
         "id": this.data.openid,
         "url": this.data.userInfo.avatarUrl,
         "name":this.data.userInfo.nickName,
-        "projid": projId,
+        "pid": this.data.pid,
       },
       success: function(res){
         console.log(res)
-       
-        wx.showToast({
-          title: '加入成功',
-        })
+        if(res.data == 'Already in'){
+          wx.showToast({
+            title: '已经加入！',
+          })
+        }else{
+          wx.showToast({
+            title: '加入成功！',
+          })
+        };
       },
       fail: function(res){
-        console.log("请求加入proj的request 失败！")
+        console.log("请求join proj的request 失败！")
       }
-    })
+    });
+    this.refuse();
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var _this = this;
+    this.setData({
+      pid: options.pid,
+      inviter: options.inviter
+    },()=>{
+      this.get_proj_info();
+    });
     this.getUserInfoFun();
     wx.cloud.init();
     wx.cloud.callFunction({
@@ -63,48 +72,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    // console.log(this.data.eye)
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
@@ -114,9 +81,9 @@ Page({
     var _this = this;
     wx.getUserInfo({
         success: function (res){
-          console.log(res)　　　　　　　//do anything
+          // console.log(res)　　　　　　　//do anything
           _this.setData({
-            userInfo: res,
+            userInfo: res.userInfo,
             eye: true
           })
         },
@@ -133,5 +100,31 @@ Page({
       this.setData({
         eye:false
       })
+  },
+  get_proj_info(){
+    var _this=this
+    wx.request({
+      url: 'https://wychandsome12138.xyz/api/get/get_one_proj_all',
+      method: "POST",
+      data:{
+        "pid": _this.data.pid
+      },
+      success: function(res){
+        // console.log(res.data)
+        console.log("get proj info success")
+        _this.setData({
+          projInfo: res.data,
+        })
+      },
+      fail: function(res){
+        console.log("请求proj 所有数据的request 失败！")
+      }
+    });
+  },
+  refuse: function(){
+    console.log("refuse inviter")
+    wx.reLaunch({
+      url: '/pages/index/index'
+    })
   }
 })

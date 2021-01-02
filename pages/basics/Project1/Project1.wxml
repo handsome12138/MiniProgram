@@ -1,6 +1,6 @@
 <view class="cu-bar fix bg-white {{isFixedTop?'fixed':''}}">
     <view class="action sub-title" style="margin-bottom:20rpx">
-      <text class="text-xl text-bold" style="margin-top:15rpx">Project{{projContent.content[0].pname}}</text>
+      <text class="text-xl text-bold" style="margin-top:15rpx">{{projContent.content[0].pname}}</text>
       <text class="bg-grey" style="width:4rem"></text>
       <!-- last-child选择器-->
     </view>

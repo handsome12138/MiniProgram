@@ -11,12 +11,11 @@ Page({
   },
   onShareAppMessage: function () {
     //console.log(userInfo.nickName);
-    var projId=23;
     return {
         title: 'TeamHelper',
         desc: '快来加入我们的项目和大家一起肝DDL吧',
         imageUrl: '/static/TeamHelper.jpg',  
-        path: "/share/share?projId="+projId // 路径，传递参数到指定页面。
+        path: "/share/share?pid=" + this.data.pid // 路径，传递参数到指定页面。
     }
   },
   onLoad(options) {

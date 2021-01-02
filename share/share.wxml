@@ -7,19 +7,22 @@
   </block>
 
   <!-- <block wx:else> -->
-    <view  open-type="navigate" hover-class='none' class="nav-li bg-white light card align-center margin1">
-      <view class="nav-title">Project1</view>
+    <view  open-type="navigate" hover-class='none' class="nav-li bg-white light card align-center margin1" style="margin:auto;text-align:center;margin-top:50rpx;height:auto">
+      <!-- <view class="nav-title">{{projInfo.content[0].pname}}</view> -->
+      <view class="text-xl text-bold">{{projInfo.content[0].pname}}</view>
       <view class="cu-avatar-group align-center" >
-            <view class="cu-avatar round sm" wx:for="2" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+        <view class="cu-avatar avatar round lg margin" wx:for="{{projInfo.portraits}}" wx:for-item="item" style="background-image:url({{item.url}});" wx:key="{{item}}">
+        </view>
       </view>
-      <view class="nav-name">微信小程序制作</view>
-      <view class="nav-ddl">DDL:12月21日</view>
-      <text class='cuIcon-newsfill'></text>
+      <!-- <view class="nav-name">{{projInfo.content[0].content}}</view> -->
+      <view class="text-content">{{projInfo.content[0].content}}</view>
+      <view class="text-content">ddl:{{projInfo.content[0].ddl}}</view>
+      <!-- <text class='cuIcon-newsfill'></text> -->
     </view>
     
-    <view class="container">
-      <text class="inv text-lg text-bold">XXX邀请您加入</text>
-      <button class="btn text-gray" bindtap="joinProj" type="primary">加入</button>
-      <button class="btn bg-grey light" bintap="refuse">拒绝</button>
+    <view class="container" style="margin-top:60rpx">
+      <text class="inv text-lg text-bold">{{inviter}}邀请您加入</text>
+      <button class="btn text-gray" bindtap="bind_joinProj" type="primary">加入</button>
+      <button class="btn bg-grey light" bindtap="refuse" type="default">拒绝</button>
     </view>
   <!-- </block>     -->

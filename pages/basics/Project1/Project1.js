@@ -98,5 +98,14 @@ Page({
         console.log("请求proj 所有数据的request 失败！")
       }
     });
-  }
+  },
+  onShareAppMessage: function () {
+    //console.log(userInfo.nickName);
+    return {
+        title: 'TeamHelper',
+        desc: '快来加入我们的项目和大家一起肝DDL吧',
+        imageUrl: '/static/TeamHelper.jpg',  
+        path: "/share/share?pid=" + this.data.pid + "&inviter=" + app.globalData.userInfo.nickName // 路径，传递参数到指定页面。
+    }
+  },
 })

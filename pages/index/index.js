@@ -87,13 +87,14 @@ Page({
       }
     })
   },
-  onShareAppMessage() {
-    return {
-      title: 'TeamHelper',
-      imageUrl: '/images/share.jpg',
-      path: '/share/share'
-    }
-  },
+  // index页面不需要share,因为在index页面不能知道pid呀
+  // onShareAppMessage() {
+  //   return {
+  //     title: 'TeamHelper',
+  //     imageUrl: '/images/share.jpg',
+  //     path: '/share/share'
+  //   }
+  // },
   after_get_openid(_this){
     // var response, pid_list=[], i,j, back = [], temp;
     var pid_list=[], i;
@@ -197,5 +198,6 @@ Page({
       console.log("请求proj 头像的 list的request 失败！")
     }
   });
-  }
+  },
+  
 })
