@@ -25,19 +25,25 @@ Component({
       type:Object,
       value:{},
       observer:function(val){
-        this.setData({
-          done_checks: Array(val.length).fill(true),
-        })
+        // console.log(val)
+        if(val){
+          this.setData({
+            done_checks: Array(val.length).fill(true),
+          })
+        }
         // console.log("done_checks set finished")
       }
     },
     undone_tasks:{
       type:Object,
       value:{},
+      // 监听值的改变赋初值，在生命周期函数里不好使
       observer:function(val){
-        this.setData({
-          undone_checks: Array(val.length).fill(false),
-        })
+        if(val != null){
+          this.setData({
+            undone_checks: Array(val.length).fill(false),
+          })
+        }
         // console.log("undone_checks set finished")
       }
     },
@@ -48,20 +54,37 @@ Component({
        //done 和 undone部分的逻辑交给调用组件的部分实现，undone,done作为component的property
       //  console.log(e);
       //  console.log(this.data)
-       if(e.target.dataset.type == 'done'){
-         var ce = 'done_checks[' + e.target.dataset.index + ']'
-         this.setData({
-           [ce]: !this.data.done_checks[e.target.dataset.index]
-         }) 
-        //  this.properties.done_checks[e.target.dataset.index] = !this.properties.done_checks[e.target.dataset.index];
-       }else{
+      var tid = null;
+      if(e.target.dataset.type == 'done'){
+        var ce = 'done_checks[' + e.target.dataset.index + ']'
+        tid = this.data.done_tasks[e.target.dataset.index].id
+        this.setData({
+          [ce]: !this.data.done_checks[e.target.dataset.index]
+        }) 
+      }else{
         var ce = 'undone_checks[' + e.target.dataset.index + ']'
+        tid = this.data.undone_tasks[e.target.dataset.index].id
         this.setData({
           [ce]: !this.data.undone_checks[e.target.dataset.index]
         }) 
-        // this.properties.undone_checks[e.target.dataset.index] = !this.properties.undone_checks[e.target.dataset.index];
-       }
+      }
+      this.alter_task_status(tid);
      },
+     alter_task_status(tid){
+      wx.request({
+        url: 'https://wychandsome12138.xyz/api/post/alter_task_status',
+        method: "POST",
+        data:{
+          "tid": tid
+        },
+        success: function(res){
+          console.log("alter task status success")
+        },
+        fail: function(res){
+          console.log("alter task status 的 request 失败！")
+        }
+      });
+     }
     //  donghua: function () {
     //    console.log("donghua ！")
     //   setTimeout(function () {

@@ -12,7 +12,7 @@ Page({
     new_task_content: null,
     new_task_ddl: null,
     new_task_create_day: null,
-    percentage: '0%',
+    percentage: '100%',
   }, 
   NavChange(e) {
     this.setData({
@@ -90,8 +90,9 @@ Page({
         console.log(res.data)
         _this.setData({
           projContent: res.data,
-          percentage: (res.data.done_tasks.length / (res.data.done_tasks.length + res.data.undone_tasks.length) * 100).toString() + '\%',
+          percentage: ( (res.data.done_tasks.length + res.data.undone_tasks.length) > 0 )?Math.floor(res.data.done_tasks.length / (res.data.done_tasks.length + res.data.undone_tasks.length) * 100).toString() + '\%':'0%',
         })
+        // console.log(Math.floor(res.data.done_tasks.length / (res.data.done_tasks.length + res.data.undone_tasks.length) * 100).toString() + '\%')
       },
       fail: function(res){
         console.log("请求proj 所有数据的request 失败！")
