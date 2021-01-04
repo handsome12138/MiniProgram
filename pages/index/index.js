@@ -13,11 +13,11 @@ Page({
   },
   onLoad: function () {
     var _this = this;
-     wx.getSetting({
+    wx.getSetting({
       success: res => {
-        // console.log("getSetting success")
+        // console.log("getSetting in index success")
         _this.setData({
-          accessReady:res.authSetting['scope.userInfo']
+          accessReady: (typeof(res.authSetting['scope.userInfo'])!="undefined"&&res.authSetting['scope.userInfo'])?true:false
         })
       }
     })
@@ -118,7 +118,7 @@ Page({
         "usrid":_this.data.openid
       },
       success: function(res) {
-        console.log("success request get_proj_list_by_usrid");
+        // console.log("success request get_proj_list_by_usrid");
         // console.log(res);
         for(i in res.data){//i 为下标
           pid_list.push(res.data[i].pid)
@@ -175,19 +175,8 @@ Page({
       },
     success: function(res){
       // console.log(res.data)
-      for(i in res.data){
-        temp = res.data[i];
-        back.push({
-          title: temp.pname,
-          name: temp.content,
-          ddl: temp.ddl.substring(0, 10), 
-          // ddl: temp.ddl,
-          id:temp.id
-        })
-      }
-      // console.log(back)
       _this.setData({
-        elements: back
+        elements: res.data
       })
     },
     fail: function(res){
