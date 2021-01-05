@@ -123,17 +123,17 @@ Page({
       data:{
         "projid": pid_list
       },
-    success: function(res){
-      // console.log("success get project content", res.data)
-      _this.setData({
-        elements: res.data
-      })
-      //console.log(res.data.length)
-    },
-    fail: function(res){
-      console.log("请求proj content的 list的request 失败！")
-    }
-  });
+      success: function(res){
+        console.log("success get project content", res.data)
+        _this.setData({
+          elements: res.data
+        })
+        //console.log(res.data.length)
+      },
+      fail: function(res){
+        console.log("请求proj content的 list的request 失败！")
+      }
+    });
   // 这里是通过projlist 获取用户头像列表的request
   wx.request({
     url: 'https://wychandsome12138.xyz/api/get/get_users_by_idlist',
