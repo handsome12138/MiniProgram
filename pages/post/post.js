@@ -146,7 +146,7 @@ Page({
       }
       
     })
-    wx.navigateTo({
+    wx.reLaunch({
       url: '../index/index'
     })
 

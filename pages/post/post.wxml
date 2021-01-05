@@ -1,7 +1,7 @@
 <view class="container">
 	<form>
 		<view class="cu-form-group margin-top">
-			<view class="title">Project Name</view>
+			<view class="title">名称</view>
 			<input placeholder="输入Project名字" model:value="{{proj_name}}"></input>
 		</view>
 		<!--
