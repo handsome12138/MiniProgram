@@ -21,6 +21,38 @@ Component({
     }
   },
   lifetimes:{
+    // show: function() {
+    //   this.onPullDownRefresh=function(){
+    //     var _this = this;
+    //     wx.cloud.init();
+    //     wx.cloud.callFunction({
+    //       // 云函数名称
+    //       name: 'getProj',
+    //       // 传给云函数的参数
+    //       data: {},
+    //       success: function(res) {
+    //         // console.log("云函数 success!", res)
+    //         _this.setData({
+    //           openid: res.result.userInfo.openId
+    //         },()=>{
+    //           // console.log("云函数 success 的 setData 的回调函数！");
+    //           _this.after_get_openid(_this);
+    //           if(type == "Refresh"){
+    //             //隐藏loading 提示框
+    //             wx.hideLoading();
+    //             //隐藏导航条加载动画
+    //             wx.hideNavigationBarLoading();
+    //             //停止下拉刷新
+    //             wx.stopPullDownRefresh();
+    //           }
+    //         })
+    //       },
+    //       fail: function(res) {
+    //         console.log("刷新 云函数 get proj fail :", res)
+    //       }
+    //     });  
+    //   }
+    // },
     ready: function () {
       console.log(this.data.elements.length)
       var that=this
@@ -29,8 +61,8 @@ Component({
           that.setData({
             hastask:false
           })
-          console.log(that.data.hastask)
-         }, 5000)
+          //console.log(that.data.hastask)
+         }, 3000)
       }     
     }
   },

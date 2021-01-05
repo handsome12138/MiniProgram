@@ -4,7 +4,7 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": false,
     "postcss": true,
@@ -91,7 +91,7 @@
           "id": 2,
           "name": "share/share",
           "pathName": "share/share",
-          "query": "pid=34&inviter=Animaguss",
+          "query": "",
           "scene": null
         },
         {
@@ -99,6 +99,12 @@
           "name": "pages/post/post",
           "pathName": "pages/post/post",
           "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mypage/aboutus/aboutus",
+          "pathName": "pages/mypage/aboutus/aboutus",
           "scene": null
         }
       ]

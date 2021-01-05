@@ -8,7 +8,7 @@ Page({
     usrid: "test_usrid",
     elements: [],
     usrss: [],
-    openid: null
+    openid: null,
     // usrid 应该通过接口获取后setdata
   },
   onLoad: function () {
@@ -24,25 +24,7 @@ Page({
     // this.setData({
     //   accessReady: app.globalData.getUserInfoReady
     // })
-    wx.cloud.init();
-    wx.cloud.callFunction({
-      // 云函数名称
-      name: 'getProj',
-      // 传给云函数的参数
-      data: {},
-      success: function(res) {
-        // console.log("云函数 success!", res)
-        _this.setData({
-          openid: res.result.userInfo.openId
-        },()=>{
-          // console.log("云函数 success 的 setData 的回调函数！");
-          _this.after_get_openid(_this);
-        })
-      },
-      fail: function(res) {
-        console.log("云函数 get proj fail :", res)
-      }
-    });    
+    this.onRefresh("Load");
   },
   getUserInfo: function(e) {
     // console.log(e)
@@ -131,37 +113,6 @@ Page({
         console.log("after_get_openid 的 wx request complete")
       }
     })
-    // wx.request 范例
-    // var pidlist = [item.pid for (item of projlist)]
-    // if (app.globalData.userInfo) {
-    //   this.setData({
-    //     userInfo: app.globalData.userInfo,
-    //     hasUserInfo: true
-    //   })
-    
-    // } else if (this.data.canIUse){
-    //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-    //   // 所以此处加入 callback 以防止这种情况
-    //   console.log(0)
-    //   app.userInfoReadyCallback = res => {
-      //     this.setData({
-        //       userInfo: res.userInfo,
-        //       hasUserInfo: true
-        //     })
-        //     console.log(res.userInfo)
-        //   }
-        // } else {
-          //   // 在没有 open-type=getUserInfo 版本的兼容处理
-          //   wx.getUserInfo({
-            //     success: res => {
-              //       app.globalData.userInfo = res.userInfo
-              //       this.setData({
-                //         userInfo: res.userInfo,
-    //         hasUserInfo: true
-    //       })
-    //     }
-    //   })
-    // }  
   }, //这里是after_get_openid的结尾
   request_in_projlist(pid_list, _this){
     var i, back = [], temp;
@@ -191,6 +142,7 @@ Page({
       "projid": pid_list
     },
     success: function(res){
+      //console.log(res)
       _this.setData({
         users: res.data
       })
@@ -211,5 +163,44 @@ Page({
         })
       }
     })
+  },
+  onPullDownRefresh: function (){
+    wx.showNavigationBarLoading(); 
+    //显示 loading 提示框。需主动调用 wx.hideLoading 才能关闭提示框
+    wx.showLoading({
+      title: '刷新中...',
+    })
+    this.onRefresh("Refresh");
+  },
+  onRefresh: function(type){
+    console.log("on Refresh");
+    var _this = this;
+    wx.cloud.init();
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'getProj',
+      // 传给云函数的参数
+      data: {},
+      success: function(res) {
+        // console.log("云函数 success!", res)
+        _this.setData({
+          openid: res.result.userInfo.openId
+        },()=>{
+          // console.log("云函数 success 的 setData 的回调函数！");
+          _this.after_get_openid(_this);
+          if(type == "Refresh"){
+            //隐藏loading 提示框
+            wx.hideLoading();
+            //隐藏导航条加载动画
+            wx.hideNavigationBarLoading();
+            //停止下拉刷新
+            wx.stopPullDownRefresh();
+          }
+        })
+      },
+      fail: function(res) {
+        console.log("刷新 云函数 get proj fail :", res)
+      }
+    });    
   }
 })

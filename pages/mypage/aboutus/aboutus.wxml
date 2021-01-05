@@ -1,0 +1,38 @@
+<!--pages/mypage/aboutus/aboutus.wxml-->
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-xxl  text-grey'>关于我们</view>
+  <view class='text-content'>
+     <image src="../../../static/TeamHelper.jpg" style="margin-bottom:-25px"mode="widthFix"></image>
+  </view>
+  <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url(https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKgolIR6C3czaWcd6uFHBzDNGFflsYkcgfo4tNzr54sry1XR5JMJGn4PPvyqnibiaESsPWavBvdS7Eg/132);"></view>
+        <view class="content flex-sub">
+          <view class="text-grey">Elvira</view>
+          <view class="text-gray flex justify-between">
+            别写了，吃饭去了
+          </view>
+        </view>
+      </view>
+
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url(https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLJPBY2fJ9mMHAoEX7wacrjiaMQqibJCoeQHLMqp3NMKQfcUBibHCzYmiaKibl8Fyg0SmnV26nA0pcmj1w/132);"></view>
+        <view class="content flex-sub">
+          <view class="text-grey">Handsome</view>
+          <view class="text-gray flex justify-between">
+            Love you three thousand.
+          </view>
+        </view>
+      </view>
+
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url(https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKgolIR6C3czaWcd6uFHBzDNGFflsYkcgfo4tNzr54sry1XR5JMJGn4PPvyqnibiaESsPWavBvdS7Eg/132);"></view>
+        <view class="content flex-sub">
+          <view class="text-grey">Elvira</view>
+          <view class="text-gray flex justify-between">
+            别写了，吃饭去了
+          </view>
+        </view>
+      </view>
+    </view>
+</view>

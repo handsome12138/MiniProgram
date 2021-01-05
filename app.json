@@ -11,7 +11,7 @@
     "pages/basics/hello/hello",
     "share/share",
     "pages/basics/mission/mission",
-    "pages/about/about"
+    "pages/mypage/aboutus/aboutus"
   ],
   "window": {
     "backgroundTextStyle": "light",
