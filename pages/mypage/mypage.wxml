@@ -39,13 +39,15 @@
       </navigator>
     </view>
     <view class="cu-item arrow">
-      <view class="content" bindtap="showQrcode">
+      <!-- <view class="content" bindtap="showQrcode"> -->
+      <view class="content">
         <text class="cuIcon-question text-grey"></text>
         <text class="text-grey">使用说明</text>
       </view>
     </view>
       <view class="cu-item arrow">
-      <view class="content" bindtap="showQrcode">
+      <view class="content">
+      <!-- <view class="content" bindtap="showQrcode"> -->
         <text class="cuIcon-appreciatefill text-grey"></text>
         <text class="text-grey">赞赏支持</text>
       </view>
@@ -57,7 +59,11 @@
       </navigator>
     </view>
   </view>
+<<<<<<< HEAD
   <view open-type="navigate" bindtap="aboutus"class="copyright margin-bottom-lg" hover-class='none' url="./aboutus/aboutus">
+=======
+  <navigator open-type="navigate" class="copyright margin-bottom-lg" hover-class='none' url="/pages/about/about">
+>>>>>>> 1
     <view class="cu-bar bg-white round">
     <view class="action sub-title " style="margin-bottom:20rpx">
       <text class="text-xl text-bold" style="margin-top:15rpx">Team Helper

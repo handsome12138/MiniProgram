@@ -11,8 +11,12 @@
     "pages/basics/hello/hello",
     "share/share",
     "pages/basics/mission/mission",
+<<<<<<< HEAD
     "pages/mypage/aboutus",
     "pages/mypage/aboutus/aboutus"
+=======
+    "pages/about/about"
+>>>>>>> 1
   ],
   "window": {
     "backgroundTextStyle": "light",
