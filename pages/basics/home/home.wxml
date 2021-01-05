@@ -13,7 +13,7 @@
 	<!-- 以上是Message界面 -->
 
 
-	<view class='nav-list'  wx:if="{{elements.length>0}}">
+	<view class='nav-list'  wx:if="{{elements.length>0 && hastask}}">
 		<!-- <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.title}}/{{item.title}}" class="nav-li bg-white light" wx:for="{{elements}}" wx:key="item"> -->
 		<navigator open-type="navigate" url="/pages/basics/Project1/Project1?projID={{item.id}}" hover-class='none' class="nav-li bg-white light" wx:for="{{elements}}" wx:key="item">
 			<view class="nav-title">{{item.pname}}</view>

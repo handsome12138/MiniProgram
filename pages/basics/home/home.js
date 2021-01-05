@@ -5,6 +5,7 @@ Component({
   data: {
     skeletonShow:true,
     elements: [],  
+    hastask:true
   },
   /**
    * 组件的属性列表
@@ -22,6 +23,11 @@ Component({
   lifetimes:{
     onLoad: function (options) {
       console.log(options);
+      setTimeout(function () {
+        this.setData({
+          hastask:false
+        })
+       }, 5000)
     }
   },
   methods:{
