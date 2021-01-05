@@ -21,13 +21,17 @@ Component({
     }
   },
   lifetimes:{
-    onLoad: function (options) {
-      console.log(options);
-      setTimeout(function () {
-        this.setData({
-          hastask:false
-        })
-       }, 5000)
+    ready: function () {
+      console.log(this.data.elements.length)
+      var that=this
+      if(this.data.elements.length==0){
+        setTimeout(function () {
+          that.setData({
+            hastask:false
+          })
+          console.log(that.data.hastask)
+         }, 5000)
+      }     
     }
   },
   methods:{
