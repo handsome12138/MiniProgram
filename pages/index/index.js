@@ -31,13 +31,16 @@ Page({
       // 传给云函数的参数
       data: {},
       success: function(res) {
-        //console.log(res.result.userInfo.openId)
+        // console.log("云函数 success!", res)
         _this.setData({
           openid: res.result.userInfo.openId
         },()=>{
-          // console.log(_this.data.openid);
+          // console.log("云函数 success 的 setData 的回调函数！");
           _this.after_get_openid(_this);
         })
+      },
+      fail: function(res) {
+        console.log("云函数 get proj fail :", res)
       }
     });    
   },
@@ -67,30 +70,31 @@ Page({
             title: '订阅OK！',
             duration: 1000,
           })
-          wx.request({
-            url: 'https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=' + app.globalData.access_token,
-            header: {'content-type': 'application/json'},
-            method:'POST',
-            data:
-              {"touser": app.globalData.openId,
-              "template_id": "Z3foe66HMD0yAB4WrDjGEOVsZQV_uI50thPH7SdXDpE",
-              "page": "index",                  //点击订阅消息以后跳转到的小程序页面
-              "miniprogram_state": "developer",
-              "lang": "zh_CN",
-              "data": {
-                  "thing1": {
-                    "value": "Project1"
-                  },
-                  "time2": {
-                    "value": "2020年12月21日 24:00"
-                  }
-                }
-            },
-            //调用接口成功
-            success: function (res) {
-              console.log(res);
-            },
-          });
+          // 这个域名不允许被加到白名单
+          // wx.request({
+          //   url: 'https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=' + app.globalData.access_token,
+          //   header: {'content-type': 'application/json'},
+          //   method:'POST',
+          //   data:
+          //     {"touser": app.globalData.openId,
+          //     "template_id": "Z3foe66HMD0yAB4WrDjGEOVsZQV_uI50thPH7SdXDpE",
+          //     "page": "index",                  //点击订阅消息以后跳转到的小程序页面
+          //     "miniprogram_state": "developer",
+          //     "lang": "zh_CN",
+          //     "data": {
+          //         "thing1": {
+          //           "value": "Project1"
+          //         },
+          //         "time2": {
+          //           "value": "2020年12月21日 24:00"
+          //         }
+          //       }
+          //   },
+          //   //调用接口成功
+          //   success: function (res) {
+          //     console.log(res);
+          //   },
+          // });
         }
       },
       fail(err) {
@@ -100,17 +104,19 @@ Page({
     })
   },
   after_get_openid(_this){
+    // console.log("after_get_openid is running")
+    // console.log(_this.data.openid)
     // var response, pid_list=[], i,j, back = [], temp;
     var pid_list=[], i;
+    // 这里的wx.request卡住了，我在console里敲一个wx.request他就会继续跑？这TMD到底是为什么
     wx.request({
-      url: "http://wychandsome12138.xyz:996/api/get/get_proj_list_by_usrid", 
+      url: "https://wychandsome12138.xyz/api/get/get_proj_list_by_usrid", 
       method: "POST", // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT 
       data: {
-        // "usrid":"test_usrid" //测试id
-        "usrid":_this.data.openid
+        "usrid": _this.data.openid
       },
-      success: function(res) {
-        // console.log("success request get_proj_list_by_usrid");
+      success: res=>{
+        console.log("success request get_proj_list_by_usrid", res.data);
         // console.log(res);
         for(i in res.data){//i 为下标
           pid_list.push(res.data[i].pid)
@@ -118,12 +124,13 @@ Page({
         // 这里是获取通过Projlist获取详细信息的request
         _this.request_in_projlist(pid_list, _this);
       },
-        fail: function(res) {
-          console.log("请求数据失败!!");
-        },
-        complete: function(res) {
-        }
-      })
+      fail: res=>{
+        console.log("get project list by user id 请求数据失败!!", res);
+      },
+      complete: res=> {
+        console.log("after_get_openid 的 wx request complete")
+      }
+    })
     // wx.request 范例
     // var pidlist = [item.pid for (item of projlist)]
     // if (app.globalData.userInfo) {
@@ -166,27 +173,11 @@ Page({
         "projid": pid_list
       },
     success: function(res){
-      // console.log(res.data)
+      // console.log("success get project content", res.data)
       _this.setData({
         elements: res.data
       })
       //console.log(res.data.length)
-      if(res.data.length!=0){
-       
-      }else{
-        _this.setData({
-          elements:
-            {
-              0:{
-                color:255,
-                content:"快来和我一起添加任务，开始你的高质量团队协作之旅吧",
-                ddl:"2021-12-31",
-                deleted:"0",
-                pname:"开始任务吧"
-              }
-            }
-        })
-      }
     },
     fail: function(res){
       console.log("请求proj content的 list的request 失败！")
@@ -213,7 +204,7 @@ Page({
     wx.getUserInfo({
       success: res => {
         // 可以将 res 发送给后台解码出 unionId
-        console.log("get access userInfo", res.userInfo) 
+        // console.log("get access userInfo", res.userInfo) 
         app.globalData.userInfo = res.userInfo
         wx.reLaunch({
           url: '/pages/index/index'
