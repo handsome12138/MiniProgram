@@ -170,6 +170,23 @@ Page({
       _this.setData({
         elements: res.data
       })
+      //console.log(res.data.length)
+      if(res.data.length!=0){
+       
+      }else{
+        _this.setData({
+          elements:
+            {
+              0:{
+                color:255,
+                content:"快来和我一起添加任务，开始你的高质量团队协作之旅吧",
+                ddl:"2021-12-31",
+                deleted:"0",
+                pname:"开始任务吧"
+              }
+            }
+        })
+      }
     },
     fail: function(res){
       console.log("请求proj content的 list的request 失败！")
