@@ -30,6 +30,11 @@ Component({
         current: 'https://image.weilanwl.com/color2.0/zanCode.jpg' // 当前显示图片的http链接      
       })
     },
+    aboutus(){
+      wx.navigateTo({
+        url: '../mypage/aboutus/aboutus',
+      })
+    }
   }
 })
 

@@ -1,5 +1,5 @@
 {
-  "cloud":true,
+  "cloud": true,
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
@@ -10,7 +10,9 @@
     "pages/basics/message/message",
     "pages/basics/hello/hello",
     "share/share",
-    "pages/basics/mission/mission"
+    "pages/basics/mission/mission",
+    "pages/mypage/aboutus",
+    "pages/mypage/aboutus/aboutus"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,6 +25,5 @@
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
-  "plugins":{
-  }
+  "plugins": {}
 }

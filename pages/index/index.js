@@ -103,7 +103,7 @@ Page({
     // var response, pid_list=[], i,j, back = [], temp;
     var pid_list=[], i;
     wx.request({
-      url: "http://wychandsome12138.xyz:996/api/get/get_proj_list_by_usrid", 
+      url: "https://wychandsome12138.xyz/api/get/get_proj_list_by_usrid", 
       method: "POST", // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT 
       data: {
         // "usrid":"test_usrid" //测试id
@@ -200,6 +200,7 @@ Page({
       "projid": pid_list
     },
     success: function(res){
+      //console.log(res)
       _this.setData({
         users: res.data
       })

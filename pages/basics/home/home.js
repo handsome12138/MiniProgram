@@ -29,8 +29,8 @@ Component({
           that.setData({
             hastask:false
           })
-          console.log(that.data.hastask)
-         }, 5000)
+          //console.log(that.data.hastask)
+         }, 3000)
       }     
     }
   },

@@ -57,7 +57,7 @@
       </navigator>
     </view>
   </view>
-  <navigator open-type="navigate" class="copyright margin-bottom-lg" hover-class='none' url="/pages/basics/message/message">
+  <view open-type="navigate" bindtap="aboutus"class="copyright margin-bottom-lg" hover-class='none' url="./aboutus/aboutus">
     <view class="cu-bar bg-white round">
     <view class="action sub-title " style="margin-bottom:20rpx">
       <text class="text-xl text-bold" style="margin-top:15rpx">Team Helper
@@ -69,7 +69,7 @@
       <!-- last-child选择器-->
     </view>
   </view>
-  </navigator>
+  </view>
     
   <view class="cu-tabbar-height"></view>
 </scroll-view>
