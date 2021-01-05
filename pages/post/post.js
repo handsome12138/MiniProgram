@@ -144,6 +144,10 @@ Page({
       fail: function(res){
         console.log("create project 的 wx request 失败！")
       }
+      
+    })
+    wx.navigateTo({
+      url: '../index/index'
     })
 
   }

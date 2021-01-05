@@ -16,7 +16,7 @@
 		</view>
 		<view class="cu-form-group">
 			<view class="title">DDL</view>
-			<picker mode="date" model:value="{{proj_ddl}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+			<picker mode="date" model:value="{{proj_ddl}}" start="2015-09-01" end="2030-09-01" bindchange="DateChange">
 				<view class="picker">
 					{{proj_ddl}}
 				</view>
