@@ -59,7 +59,6 @@
       </navigator>
     </view>
   </view>
-
   <view open-type="navigate" bindtap="aboutus"class="copyright margin-bottom-lg" hover-class='none' url="./aboutus/aboutus">
     <view class="cu-bar bg-white round">
     <view class="action sub-title " style="margin-bottom:20rpx">
