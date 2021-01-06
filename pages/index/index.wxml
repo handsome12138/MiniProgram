@@ -19,7 +19,7 @@
     </view>
     <navigator class="action" hover-class="none" url="/pages/post/post">
       <view class="action text-gray light add-action" >
-      <button bindtap="sendMsg" class="cu-btn cuIcon-add bg-grey shadow"></button>
+      <button class="cu-btn cuIcon-add bg-grey shadow"></button>
       发布
       </view>
     </navigator>
