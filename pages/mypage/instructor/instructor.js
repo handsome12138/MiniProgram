@@ -1,4 +1,4 @@
-// pages/mypage/aboutus.js
+// pages/mypage/instructor/instructor.js
 Page({
 
   /**

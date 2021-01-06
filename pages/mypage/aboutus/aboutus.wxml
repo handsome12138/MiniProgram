@@ -27,11 +27,11 @@
       </view>
 
       <view class="cu-item">
-        <view class="cu-avatar round lg" style="background-image:url(https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKgolIR6C3czaWcd6uFHBzDNGFflsYkcgfo4tNzr54sry1XR5JMJGn4PPvyqnibiaESsPWavBvdS7Eg/132);"></view>
+        <view class="cu-avatar round lg" style="background-image:url(https://thirdwx.qlogo.cn/mmopen/vi_32/JQSeDzXpGJLS6xl9XTYvQFrVOty4ggN33YHKWcMbqFWggIpnDu76vaWx5iacWsKA7Bk2n0LficIvvNticTqvG7ZKA/132);"></view>
         <view class="content flex-sub">
-          <view class="text-grey">Elvira</view>
+          <view class="text-grey">koookiy</view>
           <view class="text-gray flex justify-between">
-            别写了，吃饭去了
+            干啥啥不行，干饭第一名
           </view>
         </view>
       </view>

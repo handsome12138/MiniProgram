@@ -1,6 +1,6 @@
 <view class="cu-bar bg-white solid-bottom donetag">
   <view class='action'>
-    <text class='cuIcon-titles text-grey '></text> Done
+    <text class='cuIcon-titles text-grey '></text>Done
   </view>
 </view>
 <view class="cu-card article no-card taskcard">
