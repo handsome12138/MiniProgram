@@ -69,6 +69,9 @@ Page({
       success: function(res){
         console.log("request to create task success!");
         console.log(res.data);
+        wx.showToast({
+          title: "新建成功！",
+        })
         _this.get_db_info(_this);
       },
       fail: function(res){
