@@ -97,7 +97,8 @@ Page({
     var _this = this;
     var mydate = new Date();
     _this.setData({
-      proj_ddl: mydate.toLocaleDateString().replace(/\//g,'-')
+      proj_ddl: mydate.getFullYear() + '-' + (1 + mydate.getMonth()) + '-' + mydate.getDate(),
+      // proj_ddl: mydate.toLocaleDateString().replace(/\//g,'-')
       // 用当前时间初始化
     })
     wx.getUserInfo({
