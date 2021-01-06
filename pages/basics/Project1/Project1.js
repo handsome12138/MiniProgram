@@ -29,7 +29,7 @@ Page({
     this.setData({
       pid: options.projID,
     })
-    this.onRefresh();
+    this.onRefresh("load");
     // setTimeout(function() {
     //   that.setData({
     //     loading: true
@@ -89,12 +89,12 @@ Page({
           projContent: res.data,
           percentage: ( (res.data.done_tasks.length + res.data.undone_tasks.length) > 0 )?Math.floor(res.data.done_tasks.length / (res.data.done_tasks.length + res.data.undone_tasks.length) * 100).toString() + '\%':'0%',
         }, ()=>{
-          //隐藏loading 提示框
-          wx.hideLoading();
-          //隐藏导航条加载动画
-          wx.hideNavigationBarLoading();
-          //停止下拉刷新
-          wx.stopPullDownRefresh();
+            //隐藏loading 提示框
+            wx.hideLoading();
+            //隐藏导航条加载动画
+            wx.hideNavigationBarLoading();
+            //停止下拉刷新
+            wx.stopPullDownRefresh();
         })
         // console.log(Math.floor(res.data.done_tasks.length / (res.data.done_tasks.length + res.data.undone_tasks.length) * 100).toString() + '\%')
       },
@@ -118,10 +118,10 @@ Page({
     wx.showLoading({
       title: '刷新中...',
     })
-    this.onRefresh();
+    this.onRefresh("refresh");
     
   },
-  onRefresh: function(){
+  onRefresh: function(type){
     var _this = this;
     var mydate = new Date();
     _this.setData({
@@ -131,5 +131,6 @@ Page({
     () => {
       _this.get_db_info(_this);
     })
-  }
+  },
+
 })

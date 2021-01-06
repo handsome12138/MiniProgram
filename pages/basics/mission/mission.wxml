@@ -17,7 +17,7 @@
 </view>
 
 <view class="cu-list">
-  <view class="article no-card cu-card" wx:for="{{undone_tasks}}" wx:for-item="item" wx:key="id">
+  <view class="article no-card cu-card" wx:for="{{undone_tasks}}" wx:for-item="item" wx:key="id" bindlongpress="longpress" data-tid="{{item.id}}" data-type="undone" data-index="{{index}}">
   <!-- <view class="article no-card cu-card" wx:for="{{undone_tasks}}" wx:for-item="item" wx:key="{{item.id}}"> -->
     <view class="shadow cu-item">
       <view class="title">
@@ -47,7 +47,7 @@
 </view>
 
 <view class="cu-list bottom">
-  <view class="cu-card article no-card cu-item" wx:for="{{done_tasks}}" wx:key="id">
+  <view class="cu-card article no-card cu-item" wx:for="{{done_tasks}}" wx:key="id" bindlongpress="longpress" data-tid="{{item.id}}" data-type="done" data-index="{{index}}">
     <view class="cu-item shadow">
       <view class="title">
         <view class="text-cut">{{item.title}}</view>
