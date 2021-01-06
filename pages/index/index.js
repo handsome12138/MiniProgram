@@ -110,7 +110,7 @@ Page({
         console.log("get project list by user id 请求数据失败!!", res);
       },
       complete: res=> {
-        console.log("after_get_openid 的 wx request complete")
+        // console.log("after_get_openid 的 wx request complete")
       }
     })
   }, //这里是after_get_openid的结尾

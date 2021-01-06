@@ -134,30 +134,11 @@ Component({
           console.log("alter task status 的 request 失败！")
         }
       });
-     }
-    //  donghua: function () {
-    //    console.log("donghua ！")
-    //   setTimeout(function () {
-    //     animation.translateY(2000).step({ duration: 6000 })
-    //     this.setData({
-    //       ["animationData" + i]: animation.export()
-    //     })
-    //     i++;
-    //   }.bind(this), 600)
-    //   if (i < 7) {
-    //     setTimeout(function () {
-    //       this.donghua()
-    //     }.bind(this), 1000)
-    //   } else {
-    //     //console.log(22)
-    //     setTimeout(function () {
-    //       this.setData({
-    //         donghua: false
-    //       })
-    //     }.bind(this), 4500)
-    //     i=1;
-    //   }
-    // },
+     },
+      donghua: function () {
+        console.log("donghua ！")
+       
+     },
     
    },
   lifetimes: {

@@ -87,7 +87,7 @@ Page({
         "pid": _this.data.pid
       },
       success: function(res){
-        console.log(res.data)
+        // console.log(res.data)
         _this.setData({
           projContent: res.data,
           percentage: ( (res.data.done_tasks.length + res.data.undone_tasks.length) > 0 )?Math.floor(res.data.done_tasks.length / (res.data.done_tasks.length + res.data.undone_tasks.length) * 100).toString() + '\%':'0%',
@@ -128,8 +128,9 @@ Page({
     var _this = this;
     var mydate = new Date();
     _this.setData({
-      new_task_ddl: mydate.toLocaleDateString().replace(/\//g,'-'),
-      new_task_create_day: mydate.toLocaleDateString().replace(/\//g,'-')
+      new_task_ddl: mydate.getFullYear() + '-' + (1 + mydate.getMonth()) + '-' + mydate.getDate(),
+      new_task_create_day: mydate.getFullYear() + '-' + (1 + mydate.getMonth()) + '-' + mydate.getDate(),
+      // new_task_ddl: mydate.toLocaleDateString().replace(/\//g,'-'),
     },
     () => {
       _this.get_db_info(_this);

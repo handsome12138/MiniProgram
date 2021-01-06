@@ -1,0 +1,7 @@
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>意见反馈</view>
+  <view class='text-content'>
+    <view class='margin-top-sm'>有任何问题，请发送邮件至3180101323@zju.edu.cn</view>
+    <view class='margin-top-sm'>再次感谢您对TeamHelper的支持</view>
+  </view>
+</view>
