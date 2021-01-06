@@ -9,7 +9,7 @@
       <view class="bg-grey" style="width:{{percentage}}"></view>
     </view>
   </view>
-    <navigator  open-type="navigate" hover-class='none' url="/pages/basics/members/members?pid={{pid}}">
+    <navigator  open-type="navigate" hover-class='none' url="/pages/basics/members/members?pid={{pid}}&pname={{projContent.content[0].pname}}">
        <view class="bg-gray round bar" >
       <view class="cu-avatar avatar round lg margin" wx:for="{{projContent.portraits}}" wx:for-item="item" style="background-image:url({{item.url}});" wx:key="item">
       </view>

@@ -105,6 +105,13 @@
 					"id": -1,
 					"name": "pages/mypage/aboutus/aboutus",
 					"pathName": "pages/mypage/aboutus/aboutus",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/basics/members/members",
+					"pathName": "pages/basics/members/members",
 					"scene": null
 				}
 			]

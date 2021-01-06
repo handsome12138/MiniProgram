@@ -38,17 +38,18 @@ App({
                 var appid ='wx8d5a947dca8f7394';//微信公众号开发者id
                 var secret ='6feadcff71f7e71b065d525345c960af';//微信公众号开发者secret_key
                 var that = this
-                wx.request({
-                  url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential' + '&appid=' + appid + '&secret=' + secret,
-                  header: {
-                    'content-type': 'application/json' // 默认值
-                  },
-                  success(res) {
-                    that.globalData.access_token=res.data.access_token;
-                    // console.log(res.data)
-                    // console.log(that.globalData.access_token)
-                  }
-                })
+                // wx.request({
+                //   url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential' + '&appid=' + appid + '&secret=' + secret,
+                //   header: {
+                //     'content-type': 'application/json' // 默认值
+                //   },
+                //   success(res) {
+                //     that.globalData.access_token=res.data.access_token;
+                //     // console.log(res.data)
+                //     // console.log(that.globalData.access_token)
+                //   }
+                // })
+                // 上面的这个接口域名是不被允许的
                 wx.cloud.init();
                 wx.cloud.callFunction({
                   // 云函数名称

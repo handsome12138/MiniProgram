@@ -1,3 +1,5 @@
+@import "../../../colorui/animation.wxss";
+
 .cu-bar {
   margin: 30rpx; 
 }
@@ -33,7 +35,6 @@
   background-color: transparent;
   }
 }
-@import "../../../colorui/animation.wxss";
 
 image[class*="gif-"] {
   border-radius: 60rpx;

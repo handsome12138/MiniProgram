@@ -2,13 +2,13 @@
   enable-back-to-top="true">
   <!-- <button open-type='share' style='margin-bottom:20px' class="sharebtn rounded">邀请同伴加入</button> -->
   <!-- 这个地方太丑了，并且可以通过分享实现，干脆先注释掉 -->
-  <block wx:for="{{users}}" wx:for-item="user">
+  <block >
     <!-- <view class="indexItem-{{list[index]}}" id="indexes-{{list[index]}}" data-index="{{list[index]}}"></view> -->
     <view class="cu-list menu-avatar no-padding">
-      <view class="cu-item">
+      <view class="cu-item" wx:for="{{users}}" wx:for-item="user">
         <view class="cu-avatar round lg" style="background-image:url({{user.url}})"></view>
         <view class="content">
-          <view class="text-grey"><text>{{user.name}}</text></view>
+          <view class="text-grey"><text>哈哈哈哈哈哈{{user.name}}</text></view>
           <view class="text-gray text-sm" wx:if="user.manager == '1'">
             管理员
           </view>

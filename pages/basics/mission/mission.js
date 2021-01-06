@@ -48,8 +48,58 @@ Component({
       }
     },
   },
-   methods:{
-     tap:function(e){
+  methods:{
+    longpress:function(e){
+      var that = this;
+      var tid = e.currentTarget.dataset.tid;//获取当前长按task id
+      var type = e.currentTarget.dataset.type;//获取当前长按task 类型 done/undone
+      var index = e.currentTarget.dataset.index;//获取当前长按task index
+      console.log(e.currentTarget.dataset)
+      wx.showModal({
+        title: '提示',
+        content: '确定要删除此Task吗？',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('确定删除了');
+            wx.request({
+              url: 'https://wychandsome12138.xyz/api/post/delete_task',
+              method: "POST",
+              data:{
+                "tid": tid
+              },
+              success: function(res){
+                console.log("success delete task", res.data)
+                if(type == "done"){
+                  var temp_task = that.data.done_tasks, temp_check = that.data.done_checks
+                  temp_task.splice(index,1);
+                  temp_check.splice(index,1);
+                  that.setData({
+                    done_tasks: temp_task,
+                    done_checks: temp_check
+                  })
+                }else{ //undone
+                  var temp_task = that.data.undone_tasks, temp_check = that.data.undone_checks
+                  temp_task.splice(index,1);
+                  temp_check.splice(index,1);
+                  that.setData({
+                    undone_tasks: temp_task,
+                    undone_checks: temp_check
+                  })
+                }
+                //console.log(res.data.length)
+              },
+              fail: function(res){
+                console.log("delete task 的 request 失败！")
+              }
+            });
+          } else if (res.cancel) {
+            console.log('点击取消了');
+            return false;    
+          }
+        }
+      })
+    },
+    tap:function(e){
         // this.donghua();
        //done 和 undone部分的逻辑交给调用组件的部分实现，undone,done作为component的property
       //  console.log(e);

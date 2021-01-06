@@ -2,6 +2,7 @@ const app = getApp();
 Page({
   data: {
     pid: null,
+    pname: null,
     users: [],
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
@@ -12,7 +13,7 @@ Page({
   onShareAppMessage: function () {
     //console.log(userInfo.nickName);
     return {
-        title: 'TeamHelper',
+        title: app.globalData.userInfo.nickName + " 邀请您加入 " + this.data.pname,
         desc: '快来加入我们的项目和大家一起肝DDL吧',
         imageUrl: '/static/TeamHelper.jpg',  
         path: "/share/share?pid=" + this.data.pid + "&inviter=" + app.globalData.userInfo.nickName // 路径，传递参数到指定页面。
@@ -21,7 +22,8 @@ Page({
   onLoad(options) {
     var _this = this;
     this.setData({
-      pid: options.pid
+      pid: options.pid,
+      pname: options.pname
     },()=>{
       wx.request({
         url: 'https://wychandsome12138.xyz/api/get/get_users_by_idlist',
