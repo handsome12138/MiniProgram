@@ -47,3 +47,24 @@
     </view>
   </view>
 </view>
+<view class="cu-bar bg-white solid-bottom donetag margin-top">
+  <view class='action'>
+    <text class='cuIcon-titles text-grey '></text> Undone
+  </view>
+</view>
+<view class="cu-card article no-card taskcard">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">Project1</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content detail">搭建小程序的框架，完成后端逻辑编写</view>
+        <view>
+          <view class="cu-tag bg-gray light sm round">12月5日</view>
+          <view class="cu-tag bg-gray light sm round">微信小程序</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

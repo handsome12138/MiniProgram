@@ -33,7 +33,7 @@
       </view>
     </navigator>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/index/index" hover-class="none">
+      <navigator class="content" url="/pages/mypage/alltasks" hover-class="none">
         <text class="cuIcon-formfill text-grey"></text>
         <text class="text-grey">我的任务</text>
       </navigator>

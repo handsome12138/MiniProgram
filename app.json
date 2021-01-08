@@ -14,7 +14,8 @@
     "pages/mypage/aboutus/aboutus",
     "pages/mypage/instructor/instructor",
     "pages/mypage/thumb/thumb",
-    "pages/mypage/suggestion/suggestion"
+    "pages/mypage/suggestion/suggestion",
+    "pages/mypage/alltasks/alltasks"
   ],
   "window": {
     "backgroundTextStyle": "light",

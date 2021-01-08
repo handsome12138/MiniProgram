@@ -17,7 +17,7 @@
         <!-- 这里是右上角红点数字 -->
       </view> 任务
     </view>
-    <navigator class="action" hover-class="none" url="/pages/post/post">
+    <navigator class="action" bindtap="sendMsg" hover-class="none" url="/pages/post/post">
       <view class="action text-gray light add-action" >
       <button class="cu-btn cuIcon-add bg-grey shadow"></button>
       发布
