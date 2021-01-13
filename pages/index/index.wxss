@@ -1,4 +1,15 @@
 /**index.wxss**/
+.list{
+  width: 100%;  
+  background: #f2f2f2; 
+  font-size: 14px;
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+  overflow-y: scroll;  
+  overflow-x: hidden;
+}
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -18,4 +29,12 @@
 
 .usermotto {
   margin-top: 200px;
+}
+
+.access-box{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display:flex;
+  align-items:center;
 }

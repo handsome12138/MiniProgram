@@ -1,0 +1,15 @@
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>使用说明</view>
+  <view class='text-content'>
+    <view>Hi！欢迎使用TeamHelper团队协作助手！</view>
+    <view class='margin-top-sm'>TeamHelper是一款多人协作小程序，通过它你可以实现团队任务的分工以及任务进度追踪，有了它妈妈再也不用担心我的小组作业了！</view>
+    <view class='margin-top-sm'>使用方法：</view>
+    <view class='margin-top-sm'>1.在首页点击创建，创建你需要完成的项目</view>
+    <view class='margin-top-sm'>2.点击项目卡片进入项目，下方创建子任务按钮可以帮助你轻松创建子任务</view>
+    <view class='margin-top-sm'>3.在点击成员头像组可以查看项目所有成员</view>
+    <view class='margin-top-sm'>4.在成员页面点击分享按钮可以把任务分享给好友</view>
+    <view class='margin-top-sm'>5.好友点击任务卡片即可选择加入你的任务</view>
+    <view class='margin-top-sm'>6.在完成子任务后可以点击右边圆圈，任务被标注为已完成</view>
+    <view class='margin-top-sm'>7.在记录页面中可以随时记录项目的完成进度</view>
+  </view>
+</view>

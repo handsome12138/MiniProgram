@@ -1,6 +1,8 @@
 .top{
-  margin-top: 110px;
-
+  margin-top: 115px;
+}
+.cu-tag{
+  margin:10px
 }
 .left{
   text-align: left;
@@ -15,9 +17,40 @@
   align-items: left;
   justify-content: left;
 }
-.taskcard{
-  height: auto;
-}
 .bottom{
   margin-bottom:50px;
+}
+.cont{
+  display: flex;
+  flex-direction: row;
+}
+.move{
+  flex-direction: row;
+  height: auto;
+}
+.cu-card{
+  display: flex;
+  flex-direction: row;
+}
+.title{
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  word-break:break-all;
+}
+.content{
+  width:100vw;
+  word-break:break-all;
+  position: relative;
+  overflow-wrap: break-word;
+}
+.cu-list{
+  display:block;
+}
+image{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: -800rpx;
+  z-index: 200;
 }

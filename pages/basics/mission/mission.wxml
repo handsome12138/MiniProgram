@@ -1,54 +1,39 @@
 
+<block wx:if="{{donghua}}">
+  <view class='donghua'>
+    <image bindtap='hua' style='left:{{left1}}px' animation="{{animationData1}}" class='love' src='/static/star.png'></image>
+    <image bindtap='hua' style='left:{{left2}}px' animation="{{animationData2}}" class='love' src='/static/star.png'></image>
+    <image bindtap='hua' style='left:{{left3}}px' animation="{{animationData3}}" class='love' src='/static/star.png'></image>
+    <image bindtap='hua' style='left:{{left4}}px' animation="{{animationData4}}" class='love' src='/static/star.png'></image>
+    <image bindtap='hua' style='left:{{left5}}px' animation="{{animationData5}}" class='love' src='/static/star.png'></image>
+    <image bindtap='hua' style='left:{{left6}}px' animation="{{animationData6}}" class='love' src='/static/star.png'></image>
+    </view>
+</block>
+
 <view class="cu-bar bg-white solid-bottom margin-top top donetag">
   <view class='action'>
     <text class='cuIcon-titles text-grey '></text> Undone
   </view>
 </view>
 
-<view class="cu-card article no-card taskcard">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">完成小程序构件</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content detail">完成小程序的设计原型,完成草图设计和结构功能设计，完成初步的数据库设计</view>
-        <view>
-          <view class="cu-tag bg-gray light sm round">11月30日</view>
-          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
-        </view>
+<view class="cu-list">
+  <view class="article no-card cu-card" wx:for="{{undone_tasks}}" wx:for-item="item" wx:key="id" bindlongpress="longpress" data-tid="{{item.id}}" data-type="undone" data-index="{{index}}">
+  <!-- <view class="article no-card cu-card" wx:for="{{undone_tasks}}" wx:for-item="item" wx:key="{{item.id}}"> -->
+    <view class="shadow cu-item">
+      <view class="title">
+        <view class="text-cut">{{item.title}}</view>
+        <text bindtap="tap" data-type="undone" data-index="{{index}}" style="font-size:20px" class="{{undone_checks[index]?'cuIcon-roundcheck':'cuIcon-round'}}"></text>
+        <!-- 这里是右边的勾选框 -->
       </view>
-    </view>
-  </view>
-</view>
-
-<view class="cu-card article no-card taskcard">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">完成后端逻辑</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content detail">实现小程序后端提供的数据库构建。编写代码实现数据访问相关逻辑</view>
-        <view>
-          <view class="cu-tag bg-gray light sm round">11月30日</view>
-          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
-        </view>
-      </view>
-    </view>
-  </view>
-</view>
-<view class="cu-card article no-card taskcard">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">完成前端设计</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content detail">完成小程序的前端代码,包括前端逻辑的实现，和页面的相关跳转</view>
-        <view>
-          <view class="cu-tag bg-gray light sm round">12月5日</view>
-          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content detail" style="height:auto;margin-left:30rpx">{{item.content}}</view>
+          <view>
+            <view class="cu-tag bg-gray light sm round">{{item.ddl}}</view>
+            <!-- <view class="cu-tag bg-gray light sm round">{{item.ddl.substring(0:10)}}</view> -->
+            <!--  wxml中暂不支持 substring 方法 blog上可以搜到能用的  以后再改 -->
+            <!-- <view class="cu-tag bg-gray light sm round">{{item.tag}}</view> -->
+          </view>
         </view>
       </view>
     </view>
@@ -61,36 +46,25 @@
   </view>
 </view>
 
-<view class="cu-card article no-card taskcard">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">完成小程序构建</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content detail">完成小程序的设计原型,完成草图设计和结构功能设计，完成初步的数据库设计</view>
-        <view>
-          <view class="cu-tag bg-gray light sm round">11月30日</view>
-          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
+<view class="cu-list bottom">
+  <view class="cu-card article no-card cu-item" wx:for="{{done_tasks}}" wx:key="id" bindlongpress="longpress" data-tid="{{item.id}}" data-type="done" data-index="{{index}}">
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">{{item.title}}</view>
+        <text bindtap="tap" data-type="done" data-index="{{index}}" style="font-size:20px" class="{{done_checks[index]?'cuIcon-roundcheck':'cuIcon-round'}}"></text>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content detail" style="height:auto;margin-left:30rpx">{{item.content}}</view>
+          <!-- 这里希望 content 的 text area 自适应高度 -->
+          <view>
+            <view class="cu-tag bg-gray light sm round">{{item.ddl}}</view>
+            <!-- <view class="cu-tag bg-gray light sm round">{{item.tag}}</view> -->
+          </view>
         </view>
       </view>
     </view>
   </view>
 </view>
+<!--这里的逻辑可以后端写两个函数，一个返回所有done，一个返回所有undone。如果用户点了那个小圈圈，就更改数据库的status，整个页面重新加载一遍-->
 
-<view class="cu-card article no-card taskcard bottom">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">完成小程序构建</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content detail">完成小程序的设计原型,完成草图设计和结构功能设计，完成初步的数据库设计</view>
-        <view>
-          <view class="cu-tag bg-gray light sm round">11月30日</view>
-          <view class="cu-tag bg-gray light sm round">微信小程序实践</view>
-        </view>
-      </view>
-    </view>
-  </view>
-</view>

@@ -1,33 +1,117 @@
 <view class="cu-bar fix bg-white {{isFixedTop?'fixed':''}}">
     <view class="action sub-title" style="margin-bottom:20rpx">
-      <text class="text-xl text-bold" style="margin-top:15rpx">Project1</text>
+      <text class="text-xl text-bold" style="margin-top:15rpx">{{projContent.content[0].pname}}</text>
       <text class="bg-grey" style="width:4rem"></text>
       <!-- last-child选择器-->
     </view>
     <view class="progress">
       <view class="cu-progress round sm striped active">
-      <view class="bg-grey" style="width:{{loading?'40%':''}}"></view>
+      <view class="bg-grey" style="width:{{percentage}}"></view>
     </view>
   </view>
-    <navigator  open-type="navigate" hover-class='none' url="/pages/basics/members/members">
+    <navigator  open-type="navigate" hover-class='none' url="/pages/basics/members/members?pid={{pid}}&pname={{projContent.content[0].pname}}">
        <view class="bg-gray round bar" >
-      <view class="cu-avatar avatar round lg margin" wx:for="{{4}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);">
+      <view class="cu-avatar avatar round lg margin" wx:for="{{projContent.portraits}}" wx:for-item="item" style="background-image:url({{item.url}});" wx:key="item">
       </view>
       <text class='cuIcon-right' style="margin:10rpx"></text>
       </view>
     </navigator>
 </view>
+<!-- 上面是显示头像的地方 -->
+
 <view class="cu-bar" wx:if="{{isFixedTop}}"></view>
-<mission wx:if="{{PageCur=='missionslist'}}"></mission>
+<mission wx:if="{{PageCur=='missionslist'}}" done_tasks="{{projContent.done_tasks}}" undone_tasks="{{projContent.undone_tasks}}" ></mission>
+<!-- mission 组件是显示done和undone任务的区域 -->
 <record wx:if="{{PageCur=='record'}}"></record>
 <view class="cu-bar tabbar bg-white foot">
     <view class="action {{PageCur=='missionslist'?'':'text-gray'}}" data-cur="missionslist" bindtap="NavChange">
       <view class="{{PageCur=='missionslist'?'cuIcon-roundcheckfill':'cuIcon-roundcheck'}}" >
       </view> 任务列表
     </view>
+    <!-- <navigator class="action" hover-class="none" url="/pages/post/post">-->
+
+    <!-- <navigator class="action" hover-class="none" bindtap="showModal" data-target="{{PageCur=='missionslist'?'DialogModal1':'DialogModal2'}}"> -->
+    <view class="action" hover-class="none" bindtap="showModal" data-target="{{PageCur=='missionslist'?'DialogModal1':'DialogModal2'}}">
+      <view class="action text-gray light add-action" >
+      <button class="cu-btn cuIcon-add bg-grey shadow"></button>
+      {{PageCur=='missionslist'?'添加子任务':'添加记录'}} 
+      </view>
+    </view>
+    <!-- </navigator> -->
     <view class="action {{PageCur=='record'?'':'text-gray'}} " data-cur="record" bindtap="NavChange">
       <view class="{{PageCur=='record'?'cuIcon-recordfill':'cuIcon-record'}}">
       </view>
       记录列表
     </view>
   </view>
+
+<view class=" cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">添加子任务</view>
+    </view>
+    <view class="padding-xs container">
+      <form>
+        <view class="cu-form-group">
+          <view class="title">任务名</view>
+          <input model:value="{{new_task_title}}"></input>
+        </view>
+        <!-- <view class="cu-form-group">
+          <view class="title">标签</view>
+          <input style='font-size:16px'></input>
+        </view> -->
+        <view class="cu-form-group align-start">
+          <view class="title">详情</view>
+          <textarea style='font-size:16px' maxlength="-1" model:value="{{new_task_content}}"></textarea>
+          <!-- <textarea style='font-size:16px' maxlength="-1" bindinput="textareaBInput" model:value="new_task.title"></textarea> -->
+        </view>
+        <view class="cu-form-group">
+          <view class="title">DDL</view>
+          <picker mode="date" model:value="{{new_task_ddl}}" start="2020-09-01" end="2025-09-01" bindchange="DateChange">
+            <view class="picker">
+              {{new_task_ddl}}
+            </view>
+          </picker>
+        </view>
+      </form>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action" style="margin-bottom:20px;margin-top:20px;">
+        <button class="cu-btn line-green text-green" style="width:150px;margin-left:50px;margin-right:20px" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" style="width:150px;margin-right:50px;margin-left:20px"bindtap="submit_create_task">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="cu-modal {{modalName=='DialogModal2'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">添加记录</view>
+    </view>
+    <view class="padding-xs container">
+      <form >
+        <view class="cu-form-group">
+          <view class="title">时间</view>
+          <picker mode="date" value="{{date}}" start="2020-09-01" end="2025-09-01" bindchange="DateChange">
+            <view class="picker">
+              {{date}}
+            </view>
+          </picker>
+        </view>
+        <view class="cu-form-group align-start">
+          <view class="title">内容</view>
+          <textarea maxlength="-1" bindinput="textareaBInput" ></textarea>
+        </view>
+        
+      </form>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action" style="margin-bottom:20px;margin-top:20px;">
+        <button class="cu-btn line-green text-green" style="width:150px;margin-left:50px;margin-right:20px" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" style="width:150px;margin-right:50px;margin-left:20px"bindtap="hideModal">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

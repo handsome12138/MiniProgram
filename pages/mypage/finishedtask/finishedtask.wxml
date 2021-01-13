@@ -1,0 +1,49 @@
+<view class="cu-bar bg-white solid-bottom donetag">
+  <view class='action'>
+    <text class='cuIcon-titles text-grey '></text>Done
+  </view>
+</view>
+<view class="cu-card article no-card taskcard">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">Project1</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content detail">完成小程序的设计原型,完成初步的数据库设计</view>
+        <view>
+          <view class="cu-tag bg-gray light sm round">11月30日</view>
+          <view class="cu-tag bg-gray light sm round">微信小程序</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">前端美化</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content detail">members页面等处可以美化</view>
+        <view>
+          <view class="cu-tag bg-gray light sm round">1月7日</view>
+          <view class="cu-tag bg-gray light sm round">小程序大作业</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">完成展示ppt制作</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content detail">制作展示ppt和展示视频，准备展示内容</view>
+        <view>
+          <view class="cu-tag bg-gray light sm round">1月13日</view>
+          <view class="cu-tag bg-gray light sm round">小程序大作业</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,3 @@
+.content{
+  width: calc(100%- 60rpx - 120rpx - 20rpx);
+}

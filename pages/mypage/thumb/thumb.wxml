@@ -1,0 +1,7 @@
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>喜欢就打赏叭</view>
+  <view class='text-content'>
+    <image style="margin-top:10px" mode='aspectFill' src="../../../static/thumb.jpg">
+    </image>
+  </view>
+</view>

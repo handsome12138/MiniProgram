@@ -1,24 +1,38 @@
-<basics wx:if="{{PageCur=='basics'}}"></basics>
-<about wx:if="{{PageCur=='about'}}"></about>
+<!-- 首先判断app.js里是否获取了权限，否则弹窗提醒 -->
+<block wx:if="{{!accessReady}}">
+  <view class="access-box">
+      <button open-type="getUserInfo" hover-class="none" bindgetuserinfo="getAccessFun" type="default">获取权限</button> 
+  </view>
+</block>
+
+<block wx:else>
+<view>
+  <home wx:if="{{PageCur=='basics'}}" elements="{{elements}}" users="{{users}}"></home>
+
+<mypage wx:if="{{PageCur=='mypage'}}"></mypage>
   <view class="cu-bar tabbar bg-white foot">
     <view class="action {{PageCur=='basics'?'':'text-gray'}}" data-cur="basics" bindtap="NavChange">
       <view class="cuIcon-homefill" >
-        <view class="cu-tag badge">5</view>
+        <!-- <view class="cu-tag badge">5</view> -->
+        <!-- 这里是右上角红点数字 -->
       </view> 任务
     </view>
-    <navigator class="action" hover-class="none" url="/pages/post/post">
+    <navigator class="action" bindtap="sendMsg" hover-class="none" url="/pages/post/post">
       <view class="action text-gray light add-action" >
       <button class="cu-btn cuIcon-add bg-grey shadow"></button>
       发布
       </view>
     </navigator>
-    <view class="action {{PageCur=='about'?'':'text-gray'}} " data-cur="about" bindtap="NavChange">
+    <view class="action {{PageCur=='mypage'?'':'text-gray'}} " data-cur="mypage" bindtap="NavChange">
       <view class="cuIcon-my">
-        <view class="cu-tag badge"></view>
+        <!-- <view class="cu-tag badge"></view> -->
+        <!-- 这里是右上角红点 -->
       </view>
       我的
     </view>
   </view>
 
+</view>
 
-   
+</block>
+

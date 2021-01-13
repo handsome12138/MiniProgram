@@ -1,23 +1,17 @@
 const app = getApp();
 Page({
   data: {
+    info:[],  
+    value:'',
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     index: null,
-    picker: ['喵喵喵', '汪汪汪', '哼唧哼唧'],
-    multiArray: [
-      ['无脊柱动物', '脊柱动物'],
-      ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'],
-      ['猪肉绦虫', '吸血虫']
-    ],
-    multiIndex: [0, 0, 0],
-    time: '12:01',
-    date: '2020-11-27',
-    region: ['广东省', '广州市', '海珠区'],
-    imgList: [],
-    modalName: null,
-    textareaAValue: '',
-    textareaBValue: ''
+    proj_name: null,
+    proj_content: null,
+    proj_ddl: null,
+    userInfo:null,
+    openId:null
+
   },
   PickerChange(e) {
     console.log(e);
@@ -46,14 +40,17 @@ Page({
     })
   },
   ChooseImage() {
+    var imgList=this.data.imgList;
+    console.log(imgList)
     wx.chooseImage({
       count: 4, //默认9
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album'], //从相册选择
       success: (res) => {
-        if (this.data.imgList.length != 0) {
+        
+        if (imgList.length != 0) {
           this.setData({
-            imgList: this.data.imgList.concat(res.tempFilePaths)
+            imgList: imgList.concat(res.tempFilePaths)
           })
         } else {
           this.setData({
@@ -69,22 +66,6 @@ Page({
       current: e.currentTarget.dataset.url
     });
   },
-  DelImg(e) {
-    wx.showModal({
-      title: '召唤师',
-      content: '确定要删除这段回忆吗？',
-      cancelText: '再看看',
-      confirmText: '再见',
-      success: res => {
-        if (res.confirm) {
-          this.data.imgList.splice(e.currentTarget.dataset.index, 1);
-          this.setData({
-            imgList: this.data.imgList
-          })
-        }
-      }
-    })
-  },
   textareaAInput(e) {
     this.setData({
       textareaAValue: e.detail.value
@@ -94,5 +75,81 @@ Page({
     this.setData({
       textareaBValue: e.detail.value
     })
+  },
+    additem:function(){ 
+    var that=this;
+    var info = this.data.info; 
+    info.push(1);
+    console.log(info)  
+    that.setData({  
+        info:info 
+        }) 
+    },
+  getValue:function(e){ 
+    this.setData({  
+        title:e.detail.value,  
+        })  
+    },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var _this = this;
+    var mydate = new Date();
+    _this.setData({
+      proj_ddl: mydate.getFullYear() + '-' + (1 + mydate.getMonth()) + '-' + mydate.getDate(),
+      // proj_ddl: mydate.toLocaleDateString().replace(/\//g,'-')
+      // 用当前时间初始化
+    })
+    wx.getUserInfo({
+      success: res => {
+        //console.log(res)
+        _this.setData({
+          userInfo:res.userInfo
+        })
+      }
+    })
+    wx.cloud.init();
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'getProj',
+      // 传给云函数的参数
+      data: {},
+      success: function(res) {
+        //console.log(res.result.userInfo.openId)
+        _this.setData({
+          openId:res.result.userInfo.openId
+        })
+      }
+    })
+  },
+  submit_create: function(){
+    var _this = this;
+    console.log(_this.data.proj_name, _this.data.proj_content, _this.data.proj_ddl,_this.data.openId);
+    // 这是绑定给提交按钮的时间，调用接口提交create
+    wx.request({
+      url: 'https://wychandsome12138.xyz/api/post/create_proj',
+      method: "POST",
+      data:{
+        // "usrid": "create_proj_test_id",
+        // ==================== 上为测试id, 下为openid ===============
+        "usrid":_this.data.openId,
+        "projcolor": 255, //这没什么用
+        "projname": _this.data.proj_name,
+        "content": _this.data.proj_content,
+        "ddl": _this.data.proj_ddl
+      },
+      success: function(res){
+        console.log(res.data)
+      },
+      fail: function(res){
+        console.log("create project 的 wx request 失败！")
+      }
+      
+    })
+    wx.reLaunch({
+      url: '../index/index'
+    })
+
   }
 })

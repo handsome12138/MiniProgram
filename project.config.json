@@ -1,74 +1,127 @@
 {
-    "description": "项目配置文件",
-    "packOptions": {
-        "ignore": []
-    },
-    "setting": {
-        "urlCheck": true,
-        "es6": true,
-        "enhance": false,
-        "postcss": true,
-        "preloadBackgroundData": false,
-        "minified": true,
-        "newFeature": false,
-        "coverView": true,
-        "nodeModules": false,
-        "autoAudits": false,
-        "showShadowRootInWxmlPanel": true,
-        "scopeDataCheck": false,
-        "uglifyFileName": false,
-        "checkInvalidKey": true,
-        "checkSiteMap": true,
-        "uploadWithSourceMap": true,
-        "compileHotReLoad": false,
-        "useMultiFrameRuntime": false,
-        "useApiHook": true,
-        "babelSetting": {
-            "ignore": [],
-            "disablePlugins": [],
-            "outputPath": ""
-        },
-        "useIsolateContext": true,
-        "useCompilerModule": true,
-        "userConfirmedUseCompilerModuleSwitch": false,
-        "packNpmManually": false,
-        "packNpmRelationList": []
-    },
-    "compileType": "miniprogram",
-    "libVersion": "2.14.0",
-    "appid": "wx8f3ebd19406eda43",
-    "projectname": "uitest",
-    "debugOptions": {
-        "hidedInDevtools": []
-    },
-    "scripts": {},
-    "isGameTourist": false,
-    "simulatorType": "wechat",
-    "simulatorPluginLibVersion": {},
-    "condition": {
-        "search": {
-            "current": -1,
-            "list": []
-        },
-        "conversation": {
-            "current": -1,
-            "list": []
-        },
-        "game": {
-            "current": -1,
-            "list": []
-        },
-        "plugin": {
-            "current": -1,
-            "list": []
-        },
-        "gamePlugin": {
-            "current": -1,
-            "list": []
-        },
-        "miniprogram": {
-            "current": -1,
-            "list": []
-        }
-    }
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"enhance": false,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": false,
+		"coverView": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"uglifyFileName": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"useMultiFrameRuntime": false,
+		"useApiHook": true,
+		"packNpmManually": false,
+		"packNpmRelationList": []
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.14.0",
+	"appid": "wx8d5a947dca8f7394",
+	"projectname": "uitest",
+	"cloudfunctionRoot": "function/",
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+	"watchOptions": {
+		"ignore": []
+	},
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/basics/home/home",
+					"pathName": "pages/basics/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "share/share",
+					"pathName": "share/share",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/post/post",
+					"pathName": "pages/post/post",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mypage/aboutus/aboutus",
+					"pathName": "pages/mypage/aboutus/aboutus",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/basics/members/members",
+					"pathName": "pages/basics/members/members",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mypage/alltasks/alltasks",
+					"pathName": "pages/mypage/alltasks/alltasks",
+					"scene": null
+				}
+			]
+		}
+	}
 }

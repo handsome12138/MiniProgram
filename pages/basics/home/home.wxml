@@ -1,25 +1,37 @@
-<scroll-view scroll-y class="scrollPage">
-  <navigator open-type="navigate" hover-class='none' url="/pages/basics/message/message">
-    <view class="cu-bar bg-white round">
-    <view class="action sub-title " style="margin-bottom:20rpx">
-      <text class="text-xl text-bold" style="margin-top:15rpx">Message</text>
-      <text class="bg-grey" style="width:4rem"></text>
-      <!-- last-child选择器-->
-    </view>
-    <text class='cuIcon-right' style="margin:10rpx"></text>
+<view class="ripple" style="{{rippleStyle}}"></view>
+<scroll-view scroll-y class="scrollPage" bindtouchstart="containerTap">
+	<navigator open-type="navigate" hover-class='none' url="/pages/basics/message/message">
+		<view class="cu-bar bg-white round">
+			<view class="action sub-title " style="margin-bottom:20rpx">
+				<text class="text-xl text-bold" style="margin-top:15rpx">Message</text>
+				<text class="bg-grey" style="width:4rem"></text>
+				<!-- last-child选择器-->
+			</view>
+			<text class='cuIcon-right' style="margin:10rpx"></text>
+		</view>
+	</navigator>
+	<!-- 以上是Message界面 -->
+
+
+	<view class='nav-list'  wx:if="{{elements.length>0||!hastask}}">
+		<!-- <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.title}}/{{item.title}}" class="nav-li bg-white light" wx:for="{{elements}}" wx:key="item"> -->
+		<navigator open-type="navigate" url="/pages/basics/Project1/Project1?projID={{item.id}}" hover-class='none' class="nav-li bg-white light" wx:for="{{elements}}" wx:key="item" data-pid="{{item.id}}" bindlongpress="longpress">
+			<view class="nav-title">{{item.pname}}</view>
+			<!-- <view class="cu-avatar-group align-center margin1">
+				<view class="cu-avatar round sm" wx:for="{{4}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+			</view> -->
+			<view class="cu-avatar-group align-center margin1">
+				<view class="cu-avatar round sm" wx:for="{{users[item.id]}}" wx:for-item="urlitem" wx:key="index" style="background-image:url({{urlitem.url}});"></view>
+			</view>
+			<view class="nav-name">{{item.content}}</view>
+			<view class="nav-ddl">DDL:{{item.ddl}}</view>
+			<!-- <text class='cuIcon-newsfill'></text> -->
+			<!-- 右上角icon -->
+		</navigator>
+	</view>
+	<view wx:else class="backg">
+    <image src="/static/loading4.gif" mode="aspectFit" class="gif-black response" style="width:380px;height:80px;"></image>
   </view>
-  </navigator>
-  
-  <view class='nav-list' >
-    <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.title}}/{{item.title}}" class="nav-li bg-white light" wx:for="{{elements}}" wx:key="item">
-      <view class="nav-title">{{item.title}}</view>
-      <view class="cu-avatar-group align-center margin1" >
-          <view class="cu-avatar round sm" wx:for="{{item.number}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
-      </view>
-      <view class="nav-name">{{item.name}}</view>
-      <view class="nav-ddl">DDL:{{item.ddl}}</view>
-      <text class='cuIcon-{{item.icon}}'></text>
-    </navigator>
-  </view>
-  <view class='cu-tabbar-height'></view>
+	<view class='cu-tabbar-height'></view>
+	
 </scroll-view>

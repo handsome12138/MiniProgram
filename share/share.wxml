@@ -1,0 +1,28 @@
+<!--share/share.wxml-->
+<!-- <view class="warp" hidden="{{eye}}"> -->
+  <block wx:if="{{!eye}}">
+    <view class="access-box">
+      <button open-type="getUserInfo" hover-class="none" bindgetuserinfo="getUserInfoFun" type="default">获取权限</button> 
+    </view>
+  </block>
+
+  <block wx:else>
+    <view  open-type="navigate" hover-class='none' class="nav-li bg-white light card align-center margin1" style="margin:auto;text-align:center;margin-top:50rpx;height:auto">
+      <!-- <view class="nav-title">{{projInfo.content[0].pname}}</view> -->
+      <view class="text-xl text-bold">{{projInfo.content[0].pname}}</view>
+      <view class="cu-avatar-group align-center" >
+        <view class="cu-avatar avatar round lg margin" wx:for="{{projInfo.portraits}}" wx:for-item="item" style="background-image:url({{item.url}});" wx:key="{{item}}">
+        </view>
+      </view>
+      <!-- <view class="nav-name">{{projInfo.content[0].content}}</view> -->
+      <view class="text-content">{{projInfo.content[0].content}}</view>
+      <view class="text-content">ddl:{{projInfo.content[0].ddl}}</view>
+      <!-- <text class='cuIcon-newsfill'></text> -->
+    </view>
+    
+    <view class="container" style="margin-top:60rpx">
+      <text class="inv text-lg text-bold">{{inviter}}邀请您加入</text>
+      <button class="btn text-gray" bindtap="bind_joinProj" type="primary">加入</button>
+      <button class="btn bg-grey light" bindtap="refuse" type="default">拒绝</button>
+    </view>
+  </block>    

@@ -1,11 +1,47 @@
 const app = getApp();
 Page({
   data: {
+    pid: null,
+    pname: null,
+    users: [],
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
-    hidden: true
+    hidden: true,
+    userinfo:[],
+    openid:null
   },
-  onLoad() {
+  onShareAppMessage: function () {
+    //console.log(userInfo.nickName);
+    return {
+        title: app.globalData.userInfo.nickName + " 邀请您加入 " + this.data.pname,
+        desc: '快来加入我们的项目和大家一起肝DDL吧',
+        imageUrl: '/static/TeamHelper.jpg',  
+        path: "/share/share?pid=" + this.data.pid + "&inviter=" + app.globalData.userInfo.nickName // 路径，传递参数到指定页面。
+    }
+  },
+  onLoad(options) {
+    var _this = this;
+    this.setData({
+      pid: options.pid,
+      pname: options.pname
+    },()=>{
+      wx.request({
+        url: 'https://wychandsome12138.xyz/api/get/get_users_by_idlist',
+        method: "POST",
+        data:{
+          "projid": [_this.data.pid]
+        },
+        success: function(res){
+          _this.setData({
+            users: res.data[_this.data.pid]
+          });
+          // console.log(res.data[_this.data.pid]);
+        },
+        fail: function(res){
+          console.log("请求proj users的 list的request 失败！")
+        }
+      });
+    });
     let list = [];
     for (let i = 0; i < 26; i++) {
       list[i] = String.fromCharCode(65 + i)
@@ -13,79 +49,45 @@ Page({
     this.setData({
       list: list,
       listCur: list[0]
-    })
+    })                                   
   },
-  onReady() {
-    let that = this;
-    wx.createSelectorQuery().select('.indexBar-box').boundingClientRect(function(res) {
-      that.setData({
-        boxTop: res.top
-      })
-    }).exec();
-    wx.createSelectorQuery().select('.indexes').boundingClientRect(function(res) {
-      that.setData({
-        barTop: res.top
-      })
-    }).exec()
-  },
-  //获取文字信息
-  getCur(e) {
-    this.setData({
-      hidden: false,
-      listCur: this.data.list[e.target.id],
-    })
-  },
-
-  setCur(e) {
-    this.setData({
-      hidden: true,
-      listCur: this.data.listCur
-    })
-  },
-  //滑动选择Item
-  tMove(e) {
-    let y = e.touches[0].clientY,
-      offsettop = this.data.boxTop,
-      that = this;
-    //判断选择区域,只有在选择区才会生效
-    if (y > offsettop) {
-      let num = parseInt((y - offsettop) / 20);
-      this.setData({
-        listCur: that.data.list[num]
-      })
-    };
-  },
-
-  //触发全部开始选择
-  tStart() {
-    this.setData({
-      hidden: false
-    })
-  },
-
-  //触发结束选择
-  tEnd() {
-    this.setData({
-      hidden: true,
-      listCurID: this.data.listCur
-    })
-  },
-  indexSelect(e) {
-    let that = this;
-    let barHeight = this.data.barHeight;
-    let list = this.data.list;
-    let scrollY = Math.ceil(list.length * e.detail.y / barHeight);
-    for (let i = 0; i < list.length; i++) {
-      if (scrollY < i + 1) {
-        that.setData({
-          listCur: list[i],
-          movableY: i * 20
-        })
-        return false
-      }
-    }
-  },
-  options: {
-    addGlobalClass: true,
-  }
+  // onReady() {
+   
+  //   try{
+  //     var that=this
+  //     this.setData({
+  //       userInfo:app.globalData.userInfo,
+  //       openid:app.globalData.openId
+  //     })      
+  //   }catch(E){
+  //     console.log(0);
+  //   }
+  //   console.log(this.data.userInfo)
+  //   console.log(app.globalData.openId)
+  //   var userinfo=this.data.userinfo
+  //   var projId=23
+  //     wx.request({
+  //       url: 'https://wychandsome12138.xyz/api/post/join_proj',
+  //       method: "POST",
+  //       data:{
+  //         "id":app.globalData.openId,
+  //         "url": userinfo.avatarUrl,
+  //         "name":userinfo.nickName,
+  //         "projid": projId,
+  //       },
+  //       success: function(res){
+  //         console.log(res)
+         
+  //         wx.showToast({
+  //           title: '加入成功',
+  //         })
+  //       },
+  //       fail: function(res){
+  //         console.log("请求加入proj的request 失败！")
+  //       }
+  //     })
+  // },
+  // options: {
+  //   addGlobalClass: true,
+  // } 
 });

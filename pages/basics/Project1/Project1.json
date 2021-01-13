@@ -2,5 +2,6 @@
   "usingComponents": {
     "mission": "../../basics/mission/mission",
     "record": "../../basics/record/record"
-  }
+  },
+  "enablePullDownRefresh": true
 }
